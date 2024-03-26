@@ -5,7 +5,7 @@ import React from "react";
 export default function Footer() {
   return (
     <footer className="px-4 lg:px-12 py-5 ">
-      <div className="flex items-center justify-between w-3/5 mb-6">
+      <div className="flex flex-col md:flex-row gap-6 items-center justify-between w-full lg:w-3/5 mb-6">
         <p className="cursor-pointer text-xs underline text-gray-400 hover:text-gray-600">
           წესები და პირობები
         </p>
@@ -15,17 +15,17 @@ export default function Footer() {
         <p className="cursor-pointer text-xs underline text-gray-400 hover:text-gray-600">
           დაბრუნების პოლიტიკა
         </p>
-        <div className="border gap-2 border-gray-400 rounded-lg flex px-4 py-1 cursor-pointer hover:bg-gray-100 items-center hover-ease">
+        <div className="border gap-2 border-gray-400 rounded-lg flex px-2 lg:px-4 py-1 cursor-pointer hover:bg-gray-100 items-center hover-ease">
           <Image
             src="/icons/globe.png"
             alt="globe-icone"
             width={21}
             height={21}
           />
-          <p className="text-gray-800 text-sm ">ქართული</p>
+          <p className="text-gray-800 text-xs lg:text-sm mr-2">ქართული</p>
         </div>
       </div>
-      <ul className="flex justify-between w-full items-center">
+      <ul className="grid grid-cols-5  md:grid-rows-1 lg:flex  gap-5 justify-between w-full items-center  ">
         <li className="cursor-pointer hover:opacity-70">
           <img src="/logos/tnet-footer.png" alt="tnet" />
         </li>

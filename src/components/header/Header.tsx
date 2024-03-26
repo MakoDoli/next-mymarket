@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 
 export default function Header() {
   return (
-    <header className="px-4 lg:px-12 py-5 flex justify-between">
+    <header className="px-4 lg:px-12 py-5 flex gap-3 flex-col lg:flex-row justify-between ">
       <div className="flex ">
         <Image src="/logo.svg" alt="logo" width={150} height={41} />
         <div className="flex  w-96 ml-2 lg:ml-8 border border-grey-400 px-2 rounded-xl ">
