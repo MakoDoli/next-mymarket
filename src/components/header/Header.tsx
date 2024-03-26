@@ -5,19 +5,21 @@ import Navbar from "./Navbar";
 
 export default function Header() {
   return (
-    <header className="px-4 md:px-12 py-5 flex justify-between">
-      <div className="flex gap-2">
+    <header className="px-4 lg:px-12 py-5 flex justify-between">
+      <div className="flex ">
         <Image src="/logo.svg" alt="logo" width={150} height={41} />
-        <div className="flex w-96 ml-8 border border-grey-400 px-2 rounded-xl ">
+        <div className="flex  w-96 ml-2 lg:ml-8 border border-grey-400 px-2 rounded-xl ">
           <Input />
           <Image
+            className="cursor-pointer"
             src="/icons/camera-icon.svg"
             alt="camera-icon"
             width={21}
             height={20}
           />
-          <div className="border-l border-grey-400 mx-4 h-6 my-auto"></div>
+          <div className="border-l border-grey-400 mx-4 h-6 my-auto cursor-pointer"></div>
           <Image
+            className="cursor-pointer"
             src="/icons/search-icon.svg"
             alt="camera-icon"
             width={21}

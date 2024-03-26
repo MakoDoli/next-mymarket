@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/ui/header/Header";
+import Header from "@/components/header/Header";
 import Footer from "@/components/Footer";
 import localFont from "next/font/local";
 
@@ -22,9 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${myFont.className} min-h-screen transition-colors duration-300`}
-      >
+      <body className={`${myFont.className} min-h-screen `}>
         <Header />
         {children}
         <Footer />
