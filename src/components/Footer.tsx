@@ -42,6 +42,14 @@ export default function Footer() {
           <img src="/logos/mymarket.png" alt="mymarket" />
         </li>
         <li className="cursor-pointer hover:opacity-70">
+          <Image
+            src="/logos/biletebi.jpg"
+            alt="biletebi"
+            width={80}
+            height={24}
+          />
+        </li>
+        <li className="cursor-pointer hover:opacity-70">
           <img src="/logos/superapp.png" alt="superapp" />
         </li>
         <li className="cursor-pointer hover:opacity-70">

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="px-4 lg:px-12 py-8 flex gap-3 flex-col lg:flex-row justify-between ">
+    <header className="px-4 lg:px-12 py-8 flex gap-3 flex-col lg:flex-row justify-between  bg-white w-full ">
       <div className="flex ">
         <Link href="/">
           <Image src="/logo.svg" alt="logo" width={150} height={41} />
