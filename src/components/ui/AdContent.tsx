@@ -8,8 +8,8 @@ export default function AdContent() {
         <Image
           src="/logos/smart.jpg"
           alt="smat-logo"
-          width={120}
-          height={120}
+          width={100}
+          height={100}
         />
         <div className=" animate-move-left overflow-x-hidden ">
           <p className="text-xl lg:text-4xl text-blue-600">

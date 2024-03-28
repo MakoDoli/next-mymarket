@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 type Props = {
@@ -9,13 +10,17 @@ type Props = {
     description: string;
     price: string;
     vip: boolean;
+    id: number;
+    category: string;
   };
 };
 
 export default function ProductCard({ product }: Props) {
-  const { imageURL, seller, title, description, price, vip } = product;
+  const { imageURL, seller, title, description, price, vip, id, category } =
+    product;
+  console.log(category);
   return (
-    <div className=" flex flex-col  w-56 h-[350px] bg-white rounded-lg p-3 relative">
+    <div className="  flex flex-col  w-56 h-[350px] bg-white rounded-lg p-3 relative">
       {vip && (
         <label className="text-white bg-blue-500 absolute w-12 rounded-sm left-3 text-center">
           VIP +
@@ -28,7 +33,7 @@ export default function ProductCard({ product }: Props) {
         width={216}
         height={216}
       />
-      <div className="flex gap-2 mt-2 ">
+      <div className="flex gap-2 mt-2  ">
         <Image
           className="opacity-80"
           src="/icons/seller2.png"
@@ -38,7 +43,14 @@ export default function ProductCard({ product }: Props) {
         />
         <p className="text-xs text-gray-400">{seller}</p>
       </div>
-      <p className="mt-8">{title}</p>
+      <Link
+        href={`/electronics/${
+          category === "computers" ? "laptops" : category
+        }/${id}/details`}
+      >
+        {" "}
+        <p className="mt-8 cursor-pointer ">{title}</p>
+      </Link>
       <p className=" text-xs mb-3 text-gray-600">
         {description.slice(0, 22)}..
       </p>

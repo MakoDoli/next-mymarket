@@ -2,7 +2,7 @@ import getProducts from "@/services/getProducts";
 import React from "react";
 import ProductCard from "../ui/ProductCard";
 
-export default async function Computers() {
+export default async function LaptopsList() {
   const data = await getProducts("laptops");
   console.log(data);
   return (

@@ -9,3 +9,17 @@ export default async function getProducts(category) {
 
   return data;
 }
+
+export async function getProductDetails(category, id) {
+  const { data, error } = await supabase
+    .from(category)
+    .select("*")
+    .eq("id", id);
+
+  if (error) {
+    console.warn(error.message);
+    throw new Error("Product could not be loaded");
+  }
+
+  return data;
+}
