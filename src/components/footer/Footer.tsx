@@ -1,10 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import React from "react";
+import ScrollUp from "./ScrollUp";
 
 export default function Footer() {
   return (
     <footer className="px-4 lg:px-12 py-5 ">
+      <ScrollUp />
       <div className="flex flex-col md:flex-row gap-6 items-center justify-between w-full lg:w-3/5 mb-6">
         <p className="cursor-pointer text-xs underline text-gray-400 hover:text-gray-600">
           წესები და პირობები

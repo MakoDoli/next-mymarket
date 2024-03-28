@@ -8,13 +8,19 @@ type Props = {
     title: string;
     description: string;
     price: string;
+    vip: boolean;
   };
 };
 
-export default function CatProductCard({ product }: Props) {
-  const { imageURL, seller, title, description, price } = product;
+export default function ProductCard({ product }: Props) {
+  const { imageURL, seller, title, description, price, vip } = product;
   return (
-    <div className=" flex flex-col  w-56 h-[350px] bg-white rounded-lg p-3">
+    <div className=" flex flex-col  w-56 h-[350px] bg-white rounded-lg p-3 relative">
+      {vip && (
+        <label className="text-white bg-blue-500 absolute w-12 rounded-sm left-3 text-center">
+          VIP +
+        </label>
+      )}
       <Image
         className="w-[216px] h-[180px] rounded-lg"
         src={imageURL}
