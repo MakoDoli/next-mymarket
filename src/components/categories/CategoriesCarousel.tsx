@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function CategoriesCarousel() {
   return (
-    <div className="px-2 lg:px-12 flex gap-4 overflow-hidden">
+    <div className="px-4 lg:px-12 flex gap-4 overflow-hidden  flex-wrap lg:flex-nowrap">
       <div className=" min-w-[180px] h-32 bg-black opacity-90 rounded-2xl p-6">
         <img
           src="/icons/menu-bar.png"

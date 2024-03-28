@@ -15,7 +15,10 @@ export default async function ProductDetails({ category, id }: Props) {
   const randomNum = (value: number) => {
     return Math.floor(Math.random() * value) + 1000;
   };
-  const data = await getProductDetails(category, id);
+  const data = await getProductDetails(
+    category === "computers" ? "laptops" : category,
+    id
+  );
   const { title, description, price, seller, imageURL } = data[0];
 
   const links = translate(category);

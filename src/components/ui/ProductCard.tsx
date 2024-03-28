@@ -18,7 +18,7 @@ type Props = {
 export default function ProductCard({ product }: Props) {
   const { imageURL, seller, title, description, price, vip, id, category } =
     product;
-  console.log(category);
+
   return (
     <div className="  flex flex-col  w-56 h-[350px] bg-white rounded-lg p-3 relative">
       {vip && (
@@ -43,11 +43,7 @@ export default function ProductCard({ product }: Props) {
         />
         <p className="text-xs text-gray-400">{seller}</p>
       </div>
-      <Link
-        href={`/electronics/${
-          category === "computers" ? "laptops" : category
-        }/${id}/details`}
-      >
+      <Link href={`/electronics/${category}/${id}/details`}>
         {" "}
         <p className="mt-8 cursor-pointer ">{title}</p>
       </Link>
