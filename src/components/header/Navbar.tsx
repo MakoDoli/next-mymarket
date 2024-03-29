@@ -1,8 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
+import { UserActivityContext } from "../context/UserActivityContext";
 
 export default function Navbar() {
+  const { favorites } = useContext(UserActivityContext);
+  const num = favorites.length;
+
   return (
     <div>
       <ul className="flex gap-2 lg:gap-6 items-center">
@@ -17,7 +23,7 @@ export default function Navbar() {
             <p className="text-xs">დამატება</p>
           </div>
         </li>
-        <li className="flex gap-2 lg:gap-6">
+        <li className="flex gap-2 lg:gap-6 relative">
           <Image
             className="cursor-pointer"
             src="/icons/message-icon.svg"
@@ -25,18 +31,22 @@ export default function Navbar() {
             width={21}
             height={20}
           />
-
           <Link href="/favorites">
-            {" "}
+            <div
+              className={` bg-orange-500 rounded-full w-4 ${
+                num > 0 ? "block" : "hidden"
+              } absolute left-[58px] bottom-3 text-center text-white text-[10px]`}
+            >
+              {num}
+            </div>
             <Image
-              className="cursor-pointer"
+              className="cursor-pointer "
               src="/icons/favorites-icon.svg"
               alt="heart-icon"
               width={21}
               height={20}
             />
           </Link>
-
           <Image
             className="cursor-pointer"
             src="/icons/cart-icon.svg"

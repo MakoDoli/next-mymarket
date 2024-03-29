@@ -25,7 +25,21 @@ type Props2 = {
 export default function ProductCard({ product }: Props2) {
   const { imageURL, seller, title, description, price, vip, id, category } =
     product;
-  const { setFavorites } = useContext(UserActivityContext);
+  const { favorites, setFavorites } = useContext(UserActivityContext);
+  const isFavorite = favorites.includes(product);
+
+  const handfavorites = () => {
+    if (!isFavorite) {
+      setFavorites((prev: Product[]) => [...prev, product]);
+    }
+    if (isFavorite) {
+      const filteredFavorites = favorites.filter(
+        (item) => item.title !== title
+      );
+      setFavorites((prev: Product[]) => filteredFavorites);
+    }
+  };
+
   return (
     <div className="  flex flex-col  w-56 h-[350px] bg-white rounded-lg p-3 relative">
       {vip && (
@@ -50,7 +64,11 @@ export default function ProductCard({ product }: Props2) {
         />
         <p className="text-xs text-gray-400">{seller}</p>
       </div>
-      <Link href={`/electronics/${category}/${id}/details`}>
+      <Link
+        href={`/electronics/${
+          category === "computers" ? "laptops" : category
+        }/${id}/details`}
+      >
         {" "}
         <p className="mt-8 cursor-pointer ">{title}</p>
       </Link>
@@ -60,11 +78,13 @@ export default function ProductCard({ product }: Props2) {
       <hr></hr>
       <div className="mt-1 flex justify-between items-center">
         <p>{price}ლ</p>
-        <div className="grid cursor-pointer hover-ease rounded-md w-8 h-8 bg-gray-200 hover:bg-yellow-400">
+        <div
+          className={`grid cursor-pointer hover-ease rounded-md w-8 h-8 ${
+            isFavorite ? "bg-yellow-400" : "bg-gray-200"
+          } hover:bg-yellow-400`}
+        >
           <Image
-            onClick={() =>
-              setFavorites((prev: Product[]) => [...prev, product])
-            }
+            onClick={handfavorites}
             className=" place-self-center "
             src="/icons/heart.png"
             alt="favorite-icon"
