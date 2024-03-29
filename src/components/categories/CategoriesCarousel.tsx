@@ -28,21 +28,6 @@ export default function CategoriesCarousel() {
           !all ? "lg:flex-nowrap" : "lg:flex-wrap"
         } `}
       >
-        {/* <Image
-          src="/icons/previous.png"
-          alt="left-arrow"
-          width={60}
-          height={60}
-          className="absolute z-10 left-0 opacity-0 cursor-pointer top-8 hidden lg:block hover:opacity-50 transition-opacity duration-200 ease-in-out"
-        />
-        <Image
-          src="/icons/right.png"
-          alt="left-arrow"
-          width={60}
-          height={60}
-          className="absolute z-10 right-[420px] opacity-0 cursor-pointer top-8 hidden hover:opacity-50 lg:block"
-        /> */}
-
         {categoriesData.map((card, index) => (
           <CategoryCard
             key={index}
