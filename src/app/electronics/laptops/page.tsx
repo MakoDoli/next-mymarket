@@ -1,7 +1,12 @@
 import LaptopsList from "@/components/laptops/Laptops";
 import Sidebar from "@/components/sidebar/Sidebar";
 import Spinner from "@/components/ui/Spinner";
+import { Metadata } from "next";
 import React, { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "კომპიტუერული ტექნიკა",
+};
 
 export default function Laptops() {
   return (

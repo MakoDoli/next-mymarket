@@ -35,7 +35,7 @@ export default function Navbar() {
             <div
               className={` bg-orange-500 rounded-full w-4 ${
                 num > 0 ? "block" : "hidden"
-              } absolute left-[58px] bottom-3 text-center text-white text-[10px]`}
+              } absolute left-[58px] bottom-3 min-w-5 text-center text-white text-[10px]`}
             >
               {num}
             </div>

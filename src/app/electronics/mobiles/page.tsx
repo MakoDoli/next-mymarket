@@ -1,7 +1,11 @@
 import MobilePhones from "@/components/mobilePhones/MobilePhones";
 import Sidebar from "@/components/sidebar/Sidebar";
 import Spinner from "@/components/ui/Spinner";
+import { Metadata } from "next";
 import React, { Suspense } from "react";
+export const metadata: Metadata = {
+  title: "მობილური ტელეფონები",
+};
 
 export default function Mobiles() {
   return (
