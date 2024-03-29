@@ -1,6 +1,7 @@
 import getAllProducts from "@/services/shuffledArrays";
 import React from "react";
 import MainPageCard from "./MainPageCard";
+
 export default async function DisplayAllProducts() {
   const products = await getAllProducts();
   const vips = products.filter((item) => item.vip);
@@ -10,7 +11,7 @@ export default async function DisplayAllProducts() {
       <label className="text-white bg-blue-500  w-16 rounded-sm px-2  text-center">
         VIP +
       </label>
-      <div className="flex my-8 flex-wrap gap-x-4 gap-y-6">
+      <div className="flex  justify-center flex-wrap  md:flex-wrap my-8 md:flex-row md:justify-normal  gap-x-4 gap-y-6">
         {vips.map((product, index) => (
           <MainPageCard
             id={product.id}
@@ -23,7 +24,7 @@ export default async function DisplayAllProducts() {
         ))}
       </div>
       <label>ახალი დამატებულები</label>
-      <div className="flex my-8 flex-wrap gap-x-4 gap-y-6">
+      <div className="flex  justify-center flex-wrap  md:flex-wrap my-8 md:flex-row md:justify-normal  gap-x-4 gap-y-6">
         {products.slice(0, 12).map((product, index) => (
           <MainPageCard
             id={product.id}

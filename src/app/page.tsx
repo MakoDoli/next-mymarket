@@ -8,7 +8,7 @@ export default function Home() {
     <main>
       <CategoriesCarousel />
       <Suspense fallback={<Spinner />}>
-        <DisplayAllProducts />{" "}
+        <DisplayAllProducts />
       </Suspense>
     </main>
   );

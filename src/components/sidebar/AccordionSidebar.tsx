@@ -4,15 +4,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
 import React from "react";
-import localFont from "next/font/local";
+
+import { slimFont } from "@/fonts/slimfont";
 type Props = {
   title: string;
   options: string;
 };
-
-const slimFont = localFont({ src: "../../fonts/TBCXRegular.ttf" });
 
 export default function AccordionSidebar({ title, options }: Props) {
   return (

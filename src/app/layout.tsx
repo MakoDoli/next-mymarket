@@ -7,7 +7,10 @@ import localFont from "next/font/local";
 import { UserActivityProvider } from "@/components/context/UserActivityContext";
 
 const inter = Inter({ subsets: ["latin"] });
-const myFont = localFont({ src: "../fonts/TBCXMedium.ttf" });
+const myFont = localFont({
+  src: "../fonts/TBCXMedium.ttf",
+  fallback: ["sans-serif"],
+});
 export const metadata: Metadata = {
   title: {
     template: "%s | My Market",
@@ -23,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${myFont.className} min-h-screen `}>
+      <body className={`${myFont.className} min-h-screen  `}>
         <UserActivityProvider>
           <Header />
           {children}
