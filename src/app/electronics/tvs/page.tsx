@@ -1,6 +1,7 @@
 import Sidebar from "@/components/sidebar/Sidebar";
 import TVs from "@/components/tvs/TVs";
-import React from "react";
+import Spinner from "@/components/ui/Spinner";
+import React, { Suspense } from "react";
 
 export default function Laptops() {
   return (
@@ -8,6 +9,7 @@ export default function Laptops() {
       <div className="hidden md:block min-w-1/5  rounded-xl ">
         <Sidebar />
       </div>
+      <Suspense fallback={<Spinner />}></Suspense>
       <TVs />
     </main>
   );

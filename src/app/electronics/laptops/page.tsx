@@ -1,6 +1,7 @@
 import LaptopsList from "@/components/laptops/Laptops";
 import Sidebar from "@/components/sidebar/Sidebar";
-import React from "react";
+import Spinner from "@/components/ui/Spinner";
+import React, { Suspense } from "react";
 
 export default function Laptops() {
   return (
@@ -8,7 +9,9 @@ export default function Laptops() {
       <div className="hidden md:block min-w-1/5  rounded-xl ">
         <Sidebar />
       </div>
-      <LaptopsList />
+      <Suspense fallback={<Spinner />}>
+        <LaptopsList />
+      </Suspense>
     </main>
   );
 }

@@ -1,6 +1,7 @@
 import MobilePhones from "@/components/mobilePhones/MobilePhones";
 import Sidebar from "@/components/sidebar/Sidebar";
-import React from "react";
+import Spinner from "@/components/ui/Spinner";
+import React, { Suspense } from "react";
 
 export default function Mobiles() {
   return (
@@ -8,7 +9,9 @@ export default function Mobiles() {
       <div className="hidden md:block min-w-1/5  rounded-xl ">
         <Sidebar />
       </div>
-      <MobilePhones />
+      <Suspense fallback={<Spinner />}>
+        <MobilePhones />
+      </Suspense>
     </main>
   );
 }
