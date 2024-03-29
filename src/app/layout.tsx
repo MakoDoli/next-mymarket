@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import localFont from "next/font/local";
+import { UserActivityProvider } from "@/components/context/UserActivityContext";
 
 const inter = Inter({ subsets: ["latin"] });
 const myFont = localFont({ src: "../fonts/TBCXMedium.ttf" });
@@ -23,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${myFont.className} min-h-screen `}>
-        <Header />
-        {children}
-        <Footer />
+        <UserActivityProvider>
+          <Header />
+          {children}
+          <Footer />
+        </UserActivityProvider>
       </body>
     </html>
   );

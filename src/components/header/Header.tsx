@@ -1,8 +1,9 @@
 import Image from "next/image";
 import React from "react";
-import { Input } from "@/components/ui/input";
+
 import Navbar from "./Navbar";
 import Link from "next/link";
+import Searchbar from "./Searchbar";
 
 export default function Header() {
   return (
@@ -12,7 +13,7 @@ export default function Header() {
           <Image src="/logo.svg" alt="logo" width={150} height={41} />
         </Link>
         <div className="flex  w-96 ml-2 lg:ml-8 border border-grey-400 px-2 rounded-xl ">
-          <Input />
+          <Searchbar />
           <Image
             className="cursor-pointer"
             src="/icons/camera-icon.svg"

@@ -1,15 +1,16 @@
 import getProducts from "@/services/getProducts";
+import { Product } from "@/utils/types";
 
-type Product = {
-  id: number;
-  title: string;
-  category: string;
-  seller: string;
-  vip: boolean;
-  description: string;
-  imageURL: string;
-  price: number;
-};
+// type Product = {
+//   id: number;
+//   title: string;
+//   category: string;
+//   seller: string;
+//   vip: boolean;
+//   description: string;
+//   imageURL: string;
+//   price: number;
+// };
 
 export default async function getAllProducts() {
   const mobiles = await getProducts("mobiles");

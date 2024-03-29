@@ -1,6 +1,9 @@
+"use client";
+import { Product } from "@/utils/types";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
+import { UserActivityContext } from "../context/UserActivityContext";
 
 type Props = {
   product: {
@@ -13,12 +16,16 @@ type Props = {
     id: number;
     category: string;
   };
+}; //delete this one if second one works
+
+type Props2 = {
+  product: Product;
 };
 
-export default function ProductCard({ product }: Props) {
+export default function ProductCard({ product }: Props2) {
   const { imageURL, seller, title, description, price, vip, id, category } =
     product;
-
+  const { setFavorites } = useContext(UserActivityContext);
   return (
     <div className="  flex flex-col  w-56 h-[350px] bg-white rounded-lg p-3 relative">
       {vip && (
@@ -55,6 +62,9 @@ export default function ProductCard({ product }: Props) {
         <p>{price}ლ</p>
         <div className="grid cursor-pointer hover-ease rounded-md w-8 h-8 bg-gray-200 hover:bg-yellow-400">
           <Image
+            onClick={() =>
+              setFavorites((prev: Product[]) => [...prev, product])
+            }
             className=" place-self-center "
             src="/icons/heart.png"
             alt="favorite-icon"

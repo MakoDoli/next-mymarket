@@ -6,7 +6,7 @@ export default async function DisplayAllProducts() {
   const vips = products.filter((item) => item.vip);
   console.log(vips.length);
   return (
-    <section className=" mt-12  p-4   lg:p-12">
+    <section className=" mt-6  p-4   lg:p-12">
       <label className="text-white bg-blue-500  w-16 rounded-sm px-2  text-center">
         VIP +
       </label>

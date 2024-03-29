@@ -23,20 +23,20 @@ export const categoriesData = [
     margin: "mt-4",
   },
   {
-    title: "ავეჯი",
-    src: "/images/sofa.png",
-    margin: "mt-4",
-  },
-
-  {
     title: "ფეხსაცმელი",
     src: "/images/shoe.png",
     margin: "mt-8",
   },
+
   {
     title: "მცენარეები",
     src: "/images/plants.png",
     margin: "mt-1",
+  },
+  {
+    title: "ავეჯი",
+    src: "/images/sofa.png",
+    margin: "mt-4",
   },
   {
     title: "საათები",

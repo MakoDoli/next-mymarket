@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function Navbar() {
@@ -25,13 +26,16 @@ export default function Navbar() {
             height={20}
           />
 
-          <Image
-            className="cursor-pointer"
-            src="/icons/favorites-icon.svg"
-            alt="heart-icon"
-            width={21}
-            height={20}
-          />
+          <Link href="/favorites">
+            {" "}
+            <Image
+              className="cursor-pointer"
+              src="/icons/favorites-icon.svg"
+              alt="heart-icon"
+              width={21}
+              height={20}
+            />
+          </Link>
 
           <Image
             className="cursor-pointer"
@@ -42,7 +46,7 @@ export default function Navbar() {
           />
         </li>
         <li>
-          <div className="flex w-28 h-10 rounded-xl px-3 justify-between items-center border border-grey-400 cursor-pointer">
+          <div className="flex w-28 h-10 rounded-xl px-3 justify-between items-center border border-grey-400 cursor-pointer hover-ease hover:bg-gray-100">
             <Image
               src="/icons/user-icon.svg"
               alt="user-icon"
