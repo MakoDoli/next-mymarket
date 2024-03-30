@@ -5,5 +5,5 @@ import TVs from "./TVs";
 
 export default function FilteredTvs() {
   const { searchValue } = useContext(UserActivityContext);
-  return <TVs filter={searchValue} />;
+  return <TVs />;
 }

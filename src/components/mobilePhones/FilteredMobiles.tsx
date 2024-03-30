@@ -5,5 +5,5 @@ import MobilePhones from "./MobilePhones";
 
 export default function FilteredMobiles() {
   const { searchValue } = useContext(UserActivityContext);
-  return <MobilePhones filter={searchValue} />;
+  return <MobilePhones />;
 }

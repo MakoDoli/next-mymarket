@@ -6,5 +6,5 @@ import LaptopsList from "./Laptops";
 
 export default function FilteredLaptops() {
   const { searchValue } = useContext(UserActivityContext);
-  return <LaptopsList filter={searchValue} />;
+  return <LaptopsList />;
 }
