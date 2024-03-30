@@ -1,5 +1,8 @@
+import Header from "@/components/header/Header";
+import FilteredMobiles from "@/components/mobilePhones/FilteredMobiles";
 import MobilePhones from "@/components/mobilePhones/MobilePhones";
 import Sidebar from "@/components/sidebar/Sidebar";
+import AdContent from "@/components/ui/AdContent";
 import Spinner from "@/components/ui/Spinner";
 import { Metadata } from "next";
 import React, { Suspense } from "react";
@@ -13,9 +16,11 @@ export default function Mobiles() {
       <div className="hidden md:block min-w-1/5  rounded-xl ">
         <Sidebar />
       </div>
-      <Suspense fallback={<Spinner />}>
+      {/* <Suspense fallback={<Spinner />}>
         <MobilePhones />
-      </Suspense>
+        
+      </Suspense> */}
+      <FilteredMobiles />
     </main>
   );
 }

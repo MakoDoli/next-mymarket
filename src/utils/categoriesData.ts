@@ -1,19 +1,19 @@
 export const categoriesData = [
   {
     title: "მობილური ტელეფონები",
-    src: "/images/mobiles.png",
+    src: "/images/mobile.webp",
     margin: "",
     path: "/electronics/mobiles",
   },
   {
     title: "კომპიუტერული ტექნიკა",
-    src: "/images/laptop.png",
+    src: "/images/laptop.webp",
     margin: "mt-[5px]",
     path: "/electronics/laptops",
   },
   {
     title: "ტელევიზორები",
-    src: "/images/tv2.png",
+    src: "/images/tv.webp",
     margin: "mt-6",
     path: "/electronics/tvs",
   },
@@ -30,7 +30,7 @@ export const categoriesData = [
 
   {
     title: "მცენარეები",
-    src: "/images/plants.png",
+    src: "/images/plants.webp",
     margin: "mt-1",
   },
   {

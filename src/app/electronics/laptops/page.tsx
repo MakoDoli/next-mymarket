@@ -1,5 +1,8 @@
+import Header from "@/components/header/Header";
+import FilteredLaptops from "@/components/laptops/FilteredLaptops";
 import LaptopsList from "@/components/laptops/Laptops";
 import Sidebar from "@/components/sidebar/Sidebar";
+import AdContent from "@/components/ui/AdContent";
 import Spinner from "@/components/ui/Spinner";
 import { Metadata } from "next";
 import React, { Suspense } from "react";
@@ -14,9 +17,11 @@ export default function Laptops() {
       <div className="hidden md:block min-w-1/5  rounded-xl ">
         <Sidebar />
       </div>
-      <Suspense fallback={<Spinner />}>
+      {/* <Suspense fallback={<Spinner />}>
         <LaptopsList />
-      </Suspense>
+        
+      </Suspense> */}
+      <FilteredLaptops />
     </main>
   );
 }

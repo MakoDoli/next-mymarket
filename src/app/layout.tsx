@@ -29,6 +29,7 @@ export default function RootLayout({
       <body className={`${myFont.className} min-h-screen  `}>
         <UserActivityProvider>
           <Header />
+
           {children}
           <Footer />
         </UserActivityProvider>
