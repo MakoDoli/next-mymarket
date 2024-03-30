@@ -1,4 +1,5 @@
 import Sidebar from "@/components/sidebar/Sidebar";
+import FilteredTvs from "@/components/tvs/FilteredTvs";
 import TVs from "@/components/tvs/TVs";
 import Spinner from "@/components/ui/Spinner";
 import { Metadata } from "next";
@@ -14,8 +15,11 @@ export default function Laptops() {
       <div className="hidden md:block min-w-1/5  rounded-xl ">
         <Sidebar />
       </div>
-      <Suspense fallback={<Spinner />}></Suspense>
-      <TVs />
+      {/* <Suspense fallback={<Spinner />}>
+        <TVs />
+        
+      </Suspense> */}
+      <FilteredTvs />
     </main>
   );
 }

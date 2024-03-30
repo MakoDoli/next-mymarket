@@ -10,7 +10,7 @@ export default function Header() {
     <header className="px-4 lg:px-12 py-8 flex gap-3 flex-col lg:flex-row justify-between  bg-white w-full ">
       <div className="flex ">
         <Link href="/">
-          <Image src="/logo.png" alt="logo" width={150} height={41} />
+          <Image src="/logo.svg" alt="logo" width={150} height={41} />
         </Link>
         <div className="flex  w-96 ml-2 lg:ml-8 border border-grey-400 px-2 rounded-xl ">
           <Searchbar />

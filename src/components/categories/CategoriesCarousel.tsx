@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { categoriesData } from "@/utils/categoriesData";
 import CategoryCard from "./CategoryCard";
 import Image from "next/image";
+import { UserActivityContext } from "../context/UserActivityContext";
 
 export default function CategoriesCarousel() {
   const [all, setAll] = useState(false);
