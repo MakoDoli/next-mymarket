@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext } from "react";
-import MainPageCard from "../mainSection/MainPageCard";
+
 import { UserActivityContext } from "../context/UserActivityContext";
 import ProductCard from "../ui/ProductCard";
 

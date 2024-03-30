@@ -55,10 +55,10 @@ export default function Navbar() {
             <div className="w-[22px] h=[21px] relative ">
               <div
                 className={` bg-orange-500 rounded-full w-4 ${
-                  favNum > 0 ? "block" : "hidden"
+                  cartNum > 0 ? "block" : "hidden"
                 } absolute left-3 bottom-3 min-w-5 text-center text-white text-[10px]`}
               >
-                {5}
+                {cartNum}
               </div>
               <Image
                 className="cursor-pointer"

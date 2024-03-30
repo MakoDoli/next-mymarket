@@ -17,11 +17,10 @@ export default function Laptops() {
       <div className="hidden md:block min-w-1/5  rounded-xl ">
         <Sidebar />
       </div>
-      {/* <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Spinner />}>
         <LaptopsList />
-        
-      </Suspense> */}
-      <FilteredLaptops />
+      </Suspense>
+      {/* <FilteredLaptops /> */}
     </main>
   );
 }

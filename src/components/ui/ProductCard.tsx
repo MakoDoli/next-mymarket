@@ -1,9 +1,11 @@
-"use client";
 import { Product } from "@/utils/types";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
-import { UserActivityContext } from "../context/UserActivityContext";
+
+import AddTo from "../shared/AddToFav";
+import AddToFavorites from "../shared/AddToFav";
+import AddToCart from "../shared/AddToCart";
 
 type Props2 = {
   product: Product;
@@ -12,20 +14,6 @@ type Props2 = {
 export default function ProductCard({ product }: Props2) {
   const { imageURL, seller, title, description, price, vip, id, category } =
     product;
-  const { favorites, setFavorites } = useContext(UserActivityContext);
-  const isFavorite = favorites.includes(product);
-
-  const handlefavorites = () => {
-    if (!isFavorite) {
-      setFavorites((prev: Product[]) => [...prev, product]);
-    }
-    if (isFavorite) {
-      const filteredFavorites = favorites.filter(
-        (item) => item.title !== title
-      );
-      setFavorites((prev: Product[]) => filteredFavorites);
-    }
-  };
 
   return (
     <div className="  flex flex-col  w-56 h-[350px] bg-white rounded-lg p-3 relative">
@@ -64,19 +52,10 @@ export default function ProductCard({ product }: Props2) {
       <hr></hr>
       <div className="mt-1 flex justify-between items-center">
         <p>{price}ლ</p>
-        <div
-          className={`grid cursor-pointer hover-ease rounded-md w-8 h-8 ${
-            isFavorite ? "bg-yellow-400" : "bg-gray-200"
-          } hover:bg-yellow-400`}
-        >
-          <Image
-            onClick={handlefavorites}
-            className=" place-self-center "
-            src="/icons/heart.png"
-            alt="favorite-icon"
-            width={16}
-            height={16}
-          />
+
+        <div className="flex gap-2">
+          <AddToFavorites product={product} />
+          <AddToCart product={product} />
         </div>
       </div>
     </div>

@@ -8,13 +8,13 @@ export default function Footer() {
     <footer className="px-4 lg:px-12 py-5 ">
       <ScrollUp />
       <div className="flex flex-col md:flex-row gap-6 items-center justify-between w-full lg:w-3/5 mb-6">
-        <p className="cursor-pointer text-xs underline text-gray-400 hover:text-gray-600">
+        <p className="cursor-pointer text-xs underline text-gray-500 hover:text-gray-600">
           წესები და პირობები
         </p>
-        <p className="cursor-pointer text-xs underline text-gray-400 hover:text-gray-600">
+        <p className="cursor-pointer text-xs underline text-gray-500 hover:text-gray-600">
           კონფიდენციალურობის პოლიტიკა
         </p>
-        <p className="cursor-pointer text-xs underline text-gray-400 hover:text-gray-600">
+        <p className="cursor-pointer text-xs underline text-gray-500 hover:text-gray-600">
           დაბრუნების პოლიტიკა
         </p>
         <div className="border gap-2 border-gray-400 rounded-lg flex px-2 lg:px-4 py-1 cursor-pointer hover:bg-gray-100 items-center hover-ease">

@@ -1,5 +1,11 @@
+import CartList from "@/components/cartList/CartList";
 import React from "react";
+import { Metadata } from "next";
 
-export default function page() {
-  return <div>page</div>;
+export const metadata: Metadata = {
+  title: "ჩემი კალათა",
+};
+
+export default function Cart() {
+  return <CartList />;
 }

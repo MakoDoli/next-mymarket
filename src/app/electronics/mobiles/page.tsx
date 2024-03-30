@@ -16,11 +16,11 @@ export default function Mobiles() {
       <div className="hidden md:block min-w-1/5  rounded-xl ">
         <Sidebar />
       </div>
-      {/* <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Spinner />}>
         <MobilePhones />
         
-      </Suspense> */}
-      <FilteredMobiles />
+      </Suspense>
+      {/* <FilteredMobiles /> */}
     </main>
   );
 }

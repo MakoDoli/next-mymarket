@@ -14,5 +14,12 @@ export default function Searchbar() {
     }, 1000);
   }
 
-  return <Input onChange={handleChange} />;
+  return (
+    <>
+      <label className="text-white " htmlFor="search-input">
+        Search for item
+      </label>
+      <Input id="search-input" onChange={handleChange} />
+    </>
+  );
 }
