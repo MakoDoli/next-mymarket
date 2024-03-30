@@ -1,5 +1,5 @@
 import ProductDetails from "@/components/ui/ProductDetails";
-//import Spinner from "@/components/ui/Spinner";
+import Spinner from "@/components/ui/Spinner";
 
 import { getMetadata } from "@/services/metadata";
 import { Metadata, ResolvingMetadata } from "next";
@@ -23,7 +23,7 @@ export async function generateMetadata(
 export default function Userpage({ params }: Props) {
   return (
     <>
-      <Suspense fallback={<h1>LOADING...</h1>}>
+      <Suspense fallback={<Spinner />}>
         <ProductDetails id={params.id} category={params.category} />
       </Suspense>
     </>

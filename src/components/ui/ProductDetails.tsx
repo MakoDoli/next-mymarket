@@ -7,6 +7,7 @@ import Link from "next/link";
 import { translate } from "@/utils/translate";
 import { NextRequest } from "next/server";
 import { revalidatePath } from "next/cache";
+import { slimFont } from "@/fonts/slimfont";
 
 export async function GET(request: NextRequest) {
   const path = request.nextUrl.searchParams.get("path");
@@ -27,6 +28,7 @@ type Props = {
   id: number;
   category: string;
 };
+const slim = slimFont;
 
 export default async function ProductDetails({ category, id }: Props) {
   const randomNum = (value: number) => {
@@ -43,7 +45,7 @@ export default async function ProductDetails({ category, id }: Props) {
   return (
     <main className="bg-gray-100 p-4 lg:p-12">
       <AdContent />
-      <div className="text-gray-400 text-sm flex gap-2 mt-4">
+      <div className="text-gray-500 text-sm flex gap-2 mt-4">
         <div className="flex gap-2 items-center">
           <Link href="/">მთავარი</Link>
           <span className="flex items-center">&gt;</span>
@@ -84,6 +86,27 @@ export default async function ProductDetails({ category, id }: Props) {
           </span>
           <p>ფასი: {price}₾</p>
           <p className="text-gray-700">{description}</p>
+        </div>
+        <div className="00 h-80 shadow-lg w-96 rounded-lg p-12">
+          <p className="font-bold text-lg">{price}₾</p>
+          <div className="bg-yellow-400 hover:bg-yellow-300 hover-ease w-[18rem] m-auto pt-3 h-[3rem] rounded-xl text-center mt-4  text-md cursor-pointer ">
+            <p>კალათაში დამატება</p>
+          </div>
+          <div className="bg-indigo-500 hover:bg-indigo-400 hover-ease w-[18rem] pt-3 m-auto h-[3rem]  rounded-xl text-center   text-white mt-4  text-md cursor-pointer ">
+            <p>განვადებით შეძენა</p>
+          </div>
+          <div className="flex gap-3 mt-3">
+            <img src="/icons/fast.png" alt="delivery" />
+            <p className={` ${slim.className} text-gray-500  text-sm`}>
+              მიტანა თბილისში <span className="text-black">5 ₾</span>
+            </p>
+          </div>
+          <div className="flex gap-3 mt-3">
+            <img src="/icons/return.png" alt="return" />
+            <p className={` ${slim.className} text-gray-500  text-sm`}>
+              არ ექვემდებარება დაბრუნებას
+            </p>
+          </div>
         </div>
       </section>
       <div className="flex flex-col my-6 bg-white  w-full p-4 lg:p-8 rounded-xl gap-6">

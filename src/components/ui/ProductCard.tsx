@@ -5,19 +5,6 @@ import Link from "next/link";
 import React, { useContext } from "react";
 import { UserActivityContext } from "../context/UserActivityContext";
 
-type Props = {
-  product: {
-    imageURL: string;
-    seller: string;
-    title: string;
-    description: string;
-    price: string;
-    vip: boolean;
-    id: number;
-    category: string;
-  };
-}; //delete this one if second one works
-
 type Props2 = {
   product: Product;
 };
@@ -28,7 +15,7 @@ export default function ProductCard({ product }: Props2) {
   const { favorites, setFavorites } = useContext(UserActivityContext);
   const isFavorite = favorites.includes(product);
 
-  const handfavorites = () => {
+  const handlefavorites = () => {
     if (!isFavorite) {
       setFavorites((prev: Product[]) => [...prev, product]);
     }
@@ -69,7 +56,6 @@ export default function ProductCard({ product }: Props2) {
           category === "computers" ? "laptops" : category
         }/${id}/details`}
       >
-        {" "}
         <p className="mt-8 cursor-pointer ">{title}</p>
       </Link>
       <p className=" text-xs mb-3 text-gray-600">
@@ -84,7 +70,7 @@ export default function ProductCard({ product }: Props2) {
           } hover:bg-yellow-400`}
         >
           <Image
-            onClick={handfavorites}
+            onClick={handlefavorites}
             className=" place-self-center "
             src="/icons/heart.png"
             alt="favorite-icon"
