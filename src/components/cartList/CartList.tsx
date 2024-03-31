@@ -17,7 +17,7 @@ export default function CartList() {
           <p className="text-lg text-blue-600">{total} ₾</p>
         </div>
         <div className="flex my-8 flex-col gap-x-4 gap-y-6">
-          {cartItems.slice(0, 12).map((product, index) => (
+          {cartItems.map((product, index) => (
             <CartCard product={product} key={index} />
           ))}
         </div>

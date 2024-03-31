@@ -8,6 +8,8 @@ export const UserActivityContext = createContext<UserActivityContextType>({
   setTotal: () => {},
   cartItems: [],
   setCartItems: () => {},
+  itemCount: [],
+  setItemCount: () => {},
   favorites: [],
   setFavorites: () => {},
   searchValue: "",
@@ -20,6 +22,8 @@ type UserActivityContextType = {
   setTotal: (num: (prev: number) => number) => void;
   cartItems: Product[];
   setCartItems: (arr: (prev: Product[]) => Product[]) => void;
+  itemCount: Product[];
+  setItemCount: (arr: (prev: Product[]) => Product[]) => void;
   favorites: Product[];
   setFavorites: (arr: (prev: Product[]) => Product[]) => void;
   category: boolean;
@@ -36,6 +40,7 @@ export const UserActivityProvider = ({ children }: Props) => {
   const [searchValue, setSearchValue] = useState("");
   const [category, setCategory] = useState(false);
   const [total, setTotal] = useState(0);
+  const [itemCount, setItemCount] = useState(cartItems);
 
   return (
     <UserActivityContext.Provider
@@ -44,6 +49,8 @@ export const UserActivityProvider = ({ children }: Props) => {
         setTotal,
         cartItems,
         setCartItems,
+        itemCount,
+        setItemCount,
         favorites,
         setFavorites,
         searchValue,

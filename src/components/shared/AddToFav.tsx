@@ -13,7 +13,7 @@ export default function AddToFavorites({ product }: Props2) {
   const { title } = product;
   const { favorites, setFavorites } = useContext(UserActivityContext);
 
-  const isFavorite = favorites.includes(product);
+  const isFavorite = favorites.find((item) => item.title === product.title);
 
   const handlefavorites = () => {
     if (!isFavorite) {

@@ -9,20 +9,23 @@ type Props2 = {
 };
 
 export default function AddButton({ product }: Props2) {
-  const { title } = product;
-  const { cartItems, setCartItems } = useContext(UserActivityContext);
+  const { title, price } = product;
+  const { cartItems, setCartItems, setTotal } = useContext(UserActivityContext);
 
-  const isInCart = cartItems.includes(product);
+  const isInCart = cartItems.find((item) => item.title === title);
 
   const handleCart = () => {
     if (!isInCart) {
       setCartItems((prev: Product[]) => [...prev, product]);
+      setTotal((prev) => prev + price);
     }
     if (isInCart) {
       const filteredCart = cartItems.filter((item) => item.title !== title);
       setCartItems((prev: Product[]) => filteredCart);
+      setTotal((prev) => prev - price);
     }
   };
+
   return (
     <>
       <div

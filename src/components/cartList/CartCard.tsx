@@ -2,7 +2,7 @@
 import { Product } from "@/utils/types";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { UserActivityContext } from "../context/UserActivityContext";
 import { slimFont } from "@/fonts/slimfont";
 type Props = {
@@ -12,9 +12,11 @@ type Props = {
 export default function CartCard({ product }: Props) {
   const { imageURL, seller, title, description, price, vip, id, category } =
     product;
-  const { total, setTotal, cartItems, setCartItems } =
+  const { total, setTotal, cartItems, setCartItems, itemCount, setItemCount } =
     useContext(UserActivityContext);
-  const [count, setCount] = useState(1);
+
+  const count = itemCount.filter((item) => item.title === title).length + 1;
+
   const sum = price * count;
 
   const handleDelete = () => {
@@ -25,9 +27,6 @@ export default function CartCard({ product }: Props) {
     }
     setTotal((prev) => prev - sum);
   };
-  useEffect(() => {
-    if (count === 1 && total === 0) setTotal((prev) => prev + price);
-  }, [count, total, setTotal, price]);
 
   return (
     <div className="flex w-full gap-6 justify-between  bg-white rounded-lg p-3 items-center">
@@ -75,7 +74,11 @@ export default function CartCard({ product }: Props) {
         <div
           onClick={() => {
             if (count > 1) {
-              setCount((prev) => prev - 1);
+              const index = itemCount.findIndex((item) => item.title === title);
+              const newArr = itemCount
+                .slice(0, index)
+                .concat(itemCount.slice(index + 1));
+              setItemCount((prev) => newArr);
               setTotal((prev) => prev - price);
             }
           }}
@@ -86,8 +89,8 @@ export default function CartCard({ product }: Props) {
         <p>{count}</p>
         <div
           onClick={() => {
-            setCount((prev) => prev + 1);
-            setTotal((prev) => prev + sum);
+            setItemCount((prev) => [...itemCount, product]);
+            setTotal((prev) => prev + price);
           }}
           className="cursor-pointer rounded-lg w-8 h-4 bg-white shadow-md shadow-yellow-200 grid place-content-center "
         >
