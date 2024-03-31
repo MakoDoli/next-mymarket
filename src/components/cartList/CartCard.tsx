@@ -26,7 +26,7 @@ export default function CartCard({ product }: Props) {
     setTotal((prev) => prev - sum);
   };
   useEffect(() => {
-    if (count === 1 && total === 0) setTotal((prev) => prev + price / 2);
+    if (count === 1 && total === 0) setTotal((prev) => prev + price);
   }, [count, total, setTotal, price]);
 
   return (

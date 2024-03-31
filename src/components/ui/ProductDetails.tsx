@@ -57,7 +57,7 @@ export default async function ProductDetails({ category, id }: Props) {
         </div>
         <p>{title}</p>
       </div>
-      <section className="w-full mt-8 flex md:flex-row flex-col  gap-4 bg-white lg:gap-8 rounded-xl p-2 ">
+      <section className="w-full mt-8 flex items-center md:flex-row md:justify-between flex-col  gap-4 bg-white lg:gap-8 rounded-xl p-2 ">
         <div className="flex w-[350px] h-[350px] border border-y-gray-400 rounded-xl p-2 lg:w-[470px] lg:h-[470px]">
           <img
             className="w-[330px] h-[250px] lg:w-[450px] lg:h-[320px]"

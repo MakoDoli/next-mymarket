@@ -16,10 +16,10 @@ export default function Searchbar() {
 
   return (
     <>
-      <label className="text-white " htmlFor="search-input">
+      <label className="text-white text-xs " htmlFor="search-input">
         Search for item
       </label>
-      <Input id="search-input" onChange={handleChange} />
+      <Input onChange={handleChange} />
     </>
   );
 }
