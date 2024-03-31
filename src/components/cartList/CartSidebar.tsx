@@ -5,7 +5,7 @@ import React from "react";
 
 export default function CartSidebar() {
   return (
-    <aside className=" bg-white rounded-lg md:min-w-56 p-4 flex flex-col gap-8 ">
+    <aside className=" bg-white rounded-lg md:min-w-72 p-4 flex flex-col gap-8 ">
       <div className="flex gap-3 items-center">
         <Image
           src="/icons/femaleUser.png"

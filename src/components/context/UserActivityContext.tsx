@@ -4,6 +4,8 @@ import { ReactNode, createContext, useState } from "react";
 import { Product } from "@/utils/types";
 
 export const UserActivityContext = createContext<UserActivityContextType>({
+  total: 1,
+  setTotal: () => {},
   cartItems: [],
   setCartItems: () => {},
   favorites: [],
@@ -14,6 +16,8 @@ export const UserActivityContext = createContext<UserActivityContextType>({
   setCategory: () => {},
 });
 type UserActivityContextType = {
+  total: number;
+  setTotal: (num: (prev: number) => number) => void;
   cartItems: Product[];
   setCartItems: (arr: (prev: Product[]) => Product[]) => void;
   favorites: Product[];
@@ -31,10 +35,13 @@ export const UserActivityProvider = ({ children }: Props) => {
   const [favorites, setFavorites] = useState<Product[]>([]);
   const [searchValue, setSearchValue] = useState("");
   const [category, setCategory] = useState(false);
+  const [total, setTotal] = useState(0);
 
   return (
     <UserActivityContext.Provider
       value={{
+        total,
+        setTotal,
         cartItems,
         setCartItems,
         favorites,
