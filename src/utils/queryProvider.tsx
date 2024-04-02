@@ -7,16 +7,19 @@ type Props = {
 };
 
 export default function Provider({ children }: Props) {
-  const [queryClient] = useState(
-    () =>
-      new QueryClient({
-        defaultOptions: {
-          queries: {
-            staleTime: 0,
-          },
-        },
-      })
-  );
+  // const [queryClient] = useState(
+  //   () =>
+  //     new QueryClient({
+  //       defaultOptions: {
+  //         queries: {
+  //           staleTime: 0,
+  //         },
+  //       },
+  //     })
+  // );
+
+  const queryClient = new QueryClient();
+
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
