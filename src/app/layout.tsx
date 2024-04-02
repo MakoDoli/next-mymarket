@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import localFont from "next/font/local";
 import { UserActivityProvider } from "@/components/context/UserActivityContext";
+import Provider from "@/utils/queryProvider";
 
-const inter = Inter({ subsets: ["latin"] });
 const myFont = localFont({
   src: "../fonts/TBCXMedium.ttf",
   fallback: ["sans-serif"],
@@ -28,10 +27,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${myFont.className} min-h-screen  `}>
         <UserActivityProvider>
-          <Header />
+          <Provider>
+            <Header />
 
-          {children}
-          <Footer />
+            {children}
+            <Footer />
+          </Provider>
         </UserActivityProvider>
       </body>
     </html>

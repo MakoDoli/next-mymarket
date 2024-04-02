@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { UserActivityContext } from "../context/UserActivityContext";
 import { slimFont } from "@/fonts/slimfont";
+
 type Props = {
   product: Product;
 };

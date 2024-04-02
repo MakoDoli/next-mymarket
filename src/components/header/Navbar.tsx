@@ -4,12 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
 import { UserActivityContext } from "../context/UserActivityContext";
+import { useLogout } from "@/hooks/useLogout";
+import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const { favorites, cartItems } = useContext(UserActivityContext);
+  const { isAuthenticated } = useGetCurrentUser();
+  const logout = useLogout();
+  const router = useRouter();
 
   const favNum = favorites.length;
   const cartNum = cartItems.length;
+
+  function handleLogin() {
+    if (isAuthenticated) logout();
+    if (!isAuthenticated) router.push("/login");
+  }
 
   return (
     <div>
@@ -51,7 +62,7 @@ export default function Navbar() {
               />
             </div>
           </Link>
-          <Link href="/cart">
+          <Link href={isAuthenticated ? "/cart" : "/login"}>
             <div className="w-[22px] h=[21px] relative ">
               <div
                 className={` bg-orange-500 rounded-full w-4 ${
@@ -71,14 +82,19 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <div className="flex w-28 h-10 rounded-xl px-3 justify-between items-center border border-grey-400 cursor-pointer hover-ease hover:bg-gray-100">
+          <div
+            className="flex w-28 h-10 rounded-xl px-3 justify-between items-center border border-grey-400 cursor-pointer hover-ease hover:bg-gray-100"
+            onClick={handleLogin}
+          >
             <Image
               src="/icons/user-icon.svg"
               alt="user-icon"
               width={18}
               height={18}
             />
-            <p className=" font-medium text-sm">შესვლა</p>
+            <p className=" font-medium text-sm">
+              {isAuthenticated ? "გამოსვლა" : "შესვლა"}
+            </p>
           </div>
         </li>
         <li>

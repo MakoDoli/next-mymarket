@@ -5,7 +5,6 @@ import Spinner from "@/components/ui/Spinner";
 import { revalidatePath } from "next/cache";
 import { Suspense } from "react";
 
-//revalidatePath("/", "layout");
 export default function Home() {
   return (
     <main>
