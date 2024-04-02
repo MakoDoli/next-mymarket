@@ -62,7 +62,7 @@ export default function Navbar() {
               />
             </div>
           </Link>
-          <Link href={isAuthenticated ? "/cart" : "/login"}>
+          <Link href="/cart">
             <div className="w-[22px] h=[21px] relative ">
               <div
                 className={` bg-orange-500 rounded-full w-4 ${

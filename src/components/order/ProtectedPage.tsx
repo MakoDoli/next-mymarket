@@ -8,7 +8,7 @@ type Props = {
   children: ReactNode;
 };
 
-export default function ProtectedCart({ children }: Props) {
+export default function ProtectedPage({ children }: Props) {
   const router = useRouter();
   const { isLoading, isAuthenticated } = useGetCurrentUser();
   useEffect(() => {

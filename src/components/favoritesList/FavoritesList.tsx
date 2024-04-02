@@ -1,6 +1,5 @@
 "use client";
 import React, { useContext } from "react";
-
 import { UserActivityContext } from "../context/UserActivityContext";
 import ProductCard from "../ui/ProductCard";
 

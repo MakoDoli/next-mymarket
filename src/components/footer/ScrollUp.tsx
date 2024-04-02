@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 
 export default function ScrollUp() {
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 300) {
@@ -12,9 +13,7 @@ export default function ScrollUp() {
         setIsVisible(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

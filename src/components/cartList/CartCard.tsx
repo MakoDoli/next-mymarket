@@ -2,7 +2,7 @@
 import { Product } from "@/utils/types";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { UserActivityContext } from "../context/UserActivityContext";
 import { slimFont } from "@/fonts/slimfont";
 
