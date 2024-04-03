@@ -6,7 +6,7 @@ import { useLogin } from "../../hooks/useLogin";
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { mutate, isLoading } = useLogin();
+  const { mutate, isPending } = useLogin();
   function handleSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
     if (!email || !password) return;
@@ -38,7 +38,7 @@ export default function LoginForm() {
       />
       <button
         className="p-3 bg-yellow-400 hover:bg-yellow-300 hover-ease rounded-lg hover:text-black"
-        disabled={isLoading}
+        disabled={isPending}
       >
         Login
       </button>

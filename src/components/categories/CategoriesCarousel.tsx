@@ -1,10 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { categoriesData } from "@/utils/categoriesData";
 import CategoryCard from "./CategoryCard";
-import Image from "next/image";
-import { UserActivityContext } from "../context/UserActivityContext";
 import { slimFont } from "@/fonts/slimfont";
 
 export default function CategoriesCarousel() {
@@ -43,9 +41,9 @@ export default function CategoriesCarousel() {
           </p>
         </div>
       </div>
-      <div className="px-4 lg:px-12 flex gap-4 overflow-hidden  flex-wrap lg:flex-nowrap">
+      <div className="ml-4 lg:ml-12 flex gap-4 overflow-hidden relative flex-wrap lg:flex-nowrap">
         <div
-          className=" min-w-[180px] h-32 bg-black opacity-90 rounded-2xl p-6 cursor-pointer"
+          className=" min-w-[180px] z-10 h-32 bg-black opacity-90 rounded-2xl p-6 cursor-pointer"
           onClick={() => setAll(!all)}
         >
           <img
@@ -58,8 +56,8 @@ export default function CategoriesCarousel() {
           </p>
         </div>
         <div
-          className={`flex gap-4 relative overflow-hidden flex-wrap ${
-            !all ? "lg:flex-nowrap" : "lg:flex-wrap"
+          className={`flex gap-4  flex-wrap   ${
+            !all ? "lg:flex-nowrap lg:hover:animate-move-spin" : "lg:flex-wrap"
           } `}
         >
           {categoriesData.map((card, index) => (

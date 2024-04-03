@@ -1,14 +1,11 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-
+import { useMutation } from "@tanstack/react-query";
 import { userLogin } from "../services/getUser";
 import { useRouter } from "next/navigation";
-
 import toast from "react-hot-toast";
 
 export function useLogin() {
-  const queryClient = useQueryClient();
   const router = useRouter();
-  const { mutate, isLoading } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: userLogin,
     onSuccess: () => router.push("/cart"),
 
@@ -17,5 +14,5 @@ export function useLogin() {
       toast.error("Wrong login or password");
     },
   });
-  return { mutate, isLoading };
+  return { mutate, isPending };
 }

@@ -7,7 +7,24 @@ export async function userLogin({ email, password }) {
   });
   if (error) throw new Error(error.message);
 
-    return data;
+  return data;
+}
+
+export async function register({ fullName, email, password }) {
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        fullName: fullName,
+        avatar: "",
+      },
+    },
+  });
+  console.log(fullName);
+  if (error) throw new Error(error.message);
+
+  return data;
 }
 
 export async function getCurrentUser() {
@@ -16,11 +33,10 @@ export async function getCurrentUser() {
 
   const { data, error } = await supabase.auth.getUser();
 
-    if (error) throw new Error(error.message);
+  if (error) throw new Error(error.message);
 
   return data?.user;
 }
-
 
 export async function logout() {
   const { error } = await supabase.auth.signOut();
