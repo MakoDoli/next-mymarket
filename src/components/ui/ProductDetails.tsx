@@ -9,6 +9,7 @@ import { NextRequest } from "next/server";
 import { revalidatePath } from "next/cache";
 import { slimFont } from "@/fonts/slimfont";
 import AddButton from "../shared/AddButton";
+import AddToFavorites from "../shared/AddToFav";
 
 export async function GET(request: NextRequest) {
   const path = request.nextUrl.searchParams.get("path");
@@ -58,14 +59,15 @@ export default async function ProductDetails({ category, id }: Props) {
         <p>{title}</p>
       </div>
       <section className="w-full mt-8 flex items-center md:flex-row md:justify-between flex-col  gap-4 bg-white lg:gap-8 rounded-xl p-2 ">
-        <div className="flex w-[350px] h-[350px] border border-y-gray-400 rounded-xl p-2 lg:w-[470px] lg:h-[470px]">
+        <div className="flex flex-col items-end gap-8 w-[350px] h-[350px] border border-y-gray-400 rounded-xl p-2 lg:w-[420px] lg:h-[400px]">
           <img
-            className="w-[330px] h-[250px] lg:w-[450px] lg:h-[320px]"
+            className="w-[300px] h-[250px] lg:w-[450px] lg:h-[320px] rounded-lg"
             src={imageURL}
             alt="product image"
           />
+          <AddToFavorites product={data[0]} />
         </div>
-        <div className="flex flex-col text-left gap-4 ">
+        <div className="flex min-w-44 justify-start flex-col text-left gap-4 ">
           <p>ID:{randomNum(90000)}</p>
           <hr></hr>
           <p className="italic">{title}</p>
@@ -87,7 +89,7 @@ export default async function ProductDetails({ category, id }: Props) {
           <p>ფასი: {price}₾</p>
           <p className="text-gray-700">{description}</p>
         </div>
-        <div className="00 h-80 shadow-lg w-96 rounded-lg p-4 md:p-12">
+        <div className=" h-80 shadow-lg w-96 rounded-lg p-4 lg:p-12">
           <p className="font-bold text-lg">{price}₾</p>
 
           <AddButton product={data[0]} />
