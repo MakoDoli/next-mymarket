@@ -12,7 +12,7 @@ export default function CategoriesCarousel() {
     <div>
       <div className="flex flex-col gap-6 md:gap-1 md:flex-row justify-between text-gray-500 m-4 lg:m-12 ">
         <div
-          className={`${slimFont.className} text-sm flex gap-2 lg:gap-8 items-center`}
+          className={`${slimFont.className} flex flex-wrap text-sm md:flex-nowrap gap-2 lg:gap-8 items-center`}
         >
           <p className="hover:text-yellow-400 hover-ease cursor-pointer">
             მეორადი განვადებით
