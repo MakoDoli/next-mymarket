@@ -1,6 +1,10 @@
 import FavoritesList from "@/components/favoritesList/FavoritesList";
-import React from "react";
+import React, { Suspense } from "react";
 
 export default function Page() {
-  return <FavoritesList />;
+  return (
+    <Suspense>
+      <FavoritesList />
+    </Suspense>
+  );
 }

@@ -1,5 +1,5 @@
 import CartList from "@/components/cartList/CartList";
-import React from "react";
+import React, { Suspense } from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function Cart() {
-  return <CartList />;
+  return (
+    <Suspense>
+      <CartList />
+    </Suspense>
+  );
 }

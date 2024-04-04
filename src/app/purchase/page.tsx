@@ -1,9 +1,10 @@
 import PlaceOrder from "@/components/order/PlaceOrder";
-import React from "react";
+import React, { Suspense } from "react";
 
 export default function Order() {
   return (
-    
-    <PlaceOrder />
+    <Suspense>
+      <PlaceOrder />
+    </Suspense>
   );
 }
