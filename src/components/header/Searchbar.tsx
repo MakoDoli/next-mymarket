@@ -1,5 +1,5 @@
 "use client";
-import React, { RefObject, useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { Input } from "../ui/input";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -30,7 +30,7 @@ export default function Searchbar() {
     }, 1000);
     setSearchValue(searchItem);
   }
-  console.log(pathName.includes("electronics"));
+
   // clear searchbar input value
   useEffect(() => {
     const handlePathChange = () => {
