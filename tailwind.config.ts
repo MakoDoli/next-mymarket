@@ -29,18 +29,23 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "move-left": {
+        "move-spin": {
           "0%": { transform: "translateX(0)" },
           "60%": { transform: "translateX(-32%)" },
           "62%": { transform: "translateX(-32%)" },
 
           "100%": { transform: "translateX(0)" },
         },
+        "move-left": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-10%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "move-spin": "move-left 12s  ease-in-out  infinite ",
+        "move-spin": "move-spin 12s  ease-in-out  infinite ",
+        "move-left": "move-left 1s  ease-out 1 forwards ",
       },
       variants: {
         fill: ["hover", "focus"],
