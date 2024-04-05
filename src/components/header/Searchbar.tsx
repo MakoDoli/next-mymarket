@@ -17,18 +17,20 @@ export default function Searchbar() {
   function handleChange(searchItem: string) {
     if (timeoutId.current) clearTimeout(timeoutId.current);
     timeoutId.current = setTimeout(() => {
-      const params = new URLSearchParams(searchParams);
-      if (searchItem) {
-        params.set("query", searchItem);
-      } else {
-        params.delete("query");
+      if (pathName.includes("electronics")) {
+        const params = new URLSearchParams(searchParams);
+        if (searchItem) {
+          params.set("query", searchItem);
+        } else {
+          params.delete("query");
+        }
+
+        replace(`${pathName}?${params.toString()}`);
       }
-      console.log(params.toString());
-      replace(`${pathName}?${params.toString()}`);
     }, 1000);
     setSearchValue(searchItem);
   }
-
+  console.log(pathName.includes("electronics"));
   // clear searchbar input value
   useEffect(() => {
     const handlePathChange = () => {
