@@ -1,8 +1,9 @@
 "use client";
-import React, { useRef } from "react";
+import React, { RefObject, useContext, useEffect, useRef } from "react";
 import { Input } from "../ui/input";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { UserActivityContext } from "../context/UserActivityContext";
 
 export default function Searchbar() {
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
@@ -10,6 +11,8 @@ export default function Searchbar() {
   const searchParams = useSearchParams();
   const pathName = usePathname();
   const { replace } = useRouter();
+
+  const { searchValue, setSearchValue } = useContext(UserActivityContext);
 
   function handleChange(searchItem: string) {
     if (timeoutId.current) clearTimeout(timeoutId.current);
@@ -23,14 +26,25 @@ export default function Searchbar() {
       console.log(params.toString());
       replace(`${pathName}?${params.toString()}`);
     }, 1000);
+    setSearchValue(searchItem);
   }
 
+  // clear searchbar input value
+  useEffect(() => {
+    const handlePathChange = () => {
+      setSearchValue("");
+    };
+    handlePathChange();
+  }, [pathName, setSearchValue]);
   return (
     <>
       <label className="text-white text-xs " htmlFor="search-input">
         Search for item
       </label>
-      <Input onChange={(e) => handleChange(e.target.value)} />
+      <Input
+        value={searchValue}
+        onChange={(e) => handleChange(e.target.value)}
+      />
     </>
   );
 }
