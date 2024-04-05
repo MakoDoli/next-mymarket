@@ -1,9 +1,6 @@
 import { Product } from "@/utils/types";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext } from "react";
-
-import AddTo from "../shared/AddToFav";
 import AddToFavorites from "../shared/AddToFav";
 import AddToCart from "../shared/AddToCart";
 
@@ -18,7 +15,7 @@ export default function ProductCard({ product }: Props2) {
   return (
     <div className="  flex flex-col  w-56 h-[350px] bg-white rounded-lg p-3 relative">
       {vip && (
-        <label className="text-white bg-blue-500 absolute w-12 rounded-sm left-3 text-center">
+        <label className="text-white bg-blue-600 absolute w-12 rounded-sm left-3 text-center">
           VIP +
         </label>
       )}
@@ -37,7 +34,7 @@ export default function ProductCard({ product }: Props2) {
           width={18}
           height={18}
         />
-        <p className="text-xs text-gray-400">{seller}</p>
+        <p className="text-xs text-gray-500">{seller}</p>
       </div>
       <Link
         href={`/electronics/${
