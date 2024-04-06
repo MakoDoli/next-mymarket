@@ -14,7 +14,7 @@ export default function CartList() {
   return (
     <main className="p-4 bg-gray-100 lg:px-12 flex gap-2 lg:gap-4">
       <CartSidebar />
-      <section className=" w-full  p-4   lg:p-12">
+      <section className=" w-full  p-4 lg:pl-8 ">
         <div className="flex justify-between">
           <h2 className="text-2xl">ჩემი კალათა</h2>
           <div className="flex gap-3 items-center ">

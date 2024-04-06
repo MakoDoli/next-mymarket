@@ -22,7 +22,7 @@ export default function CartSidebar() {
         <p>{username}</p>
       </div>
       <ul
-        className={`${slimFont.className} text-sm text-gray-500 px-4  list-disc`}
+        className={`${slimFont.className} text-sm text-gray-500 px-2 md:px-4 list-none  md:list-disc`}
       >
         {userMenu.map((item, index) => (
           <li
