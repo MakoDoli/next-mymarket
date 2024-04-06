@@ -20,7 +20,7 @@ export default async function MobilePhones({ query }: { query: string }) {
         <div className="hidden md:block min-w-1/5  rounded-xl ">
           <Sidebar />
         </div>
-        <div className="flex flex-wrap gap-x-3 gap-y-6">
+        <div className="flex justify-center flex-wrap gap-x-3 gap-y-6">
           {list.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
