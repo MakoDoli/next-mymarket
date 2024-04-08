@@ -11,7 +11,7 @@ export default function CartSidebar() {
     : "შენი სახელი";
 
   return (
-    <aside className=" bg-white rounded-lg md:min-w-72 p-4 flex flex-col gap-8 ">
+    <aside className=" bg-white rounded-lg md:min-w-72 p-4 flex flex-col gap-8  ">
       <div className="flex gap-3 items-center">
         <Image
           src="/icons/femaleUser.png"
@@ -22,7 +22,7 @@ export default function CartSidebar() {
         <p>{username}</p>
       </div>
       <ul
-        className={`${slimFont.className} text-sm text-gray-500 px-2 md:px-4 list-none  md:list-disc`}
+        className={`${slimFont.className} text-sm text-gray-500 px-4   list-disc`}
       >
         {userMenu.map((item, index) => (
           <li

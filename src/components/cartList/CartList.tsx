@@ -12,7 +12,7 @@ export default function CartList() {
   const { isAuthenticated } = useGetCurrentUser();
 
   return (
-    <main className="p-4 bg-gray-100 lg:px-12 flex gap-2 lg:gap-4">
+    <main className="p-4 flex flex-col-reverse bg-gray-100 lg:px-12 md:flex-row gap-2 lg:gap-4">
       <CartSidebar />
       <section className=" w-full  p-4 lg:pl-8 ">
         <div className="flex justify-between">

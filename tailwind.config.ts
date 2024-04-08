@@ -20,6 +20,9 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        "2xl": "1400px",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
