@@ -40,7 +40,7 @@ export default function LoginForm() {
         className="p-3 bg-yellow-400 hover:bg-yellow-300 hover-ease rounded-lg hover:text-black"
         disabled={isPending}
       >
-        Login
+        შესვლა
       </button>
     </form>
   );

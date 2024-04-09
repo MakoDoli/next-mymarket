@@ -98,15 +98,21 @@ export default function Navbar() {
           </div>
         </li>
         <li>
-          <div className=" border rounded-full hover:border-blue-600 hover-ease">
-            <Image
-              className="cursor-pointer"
-              src="/icons/tnet-icon.svg"
-              alt="user-icon"
-              width={40}
-              height={40}
-            />
-          </div>
+          <Link
+            href="https://auth.tnet.ge/ka/user/login/?Continue=https://www.mymarket.ge/ka"
+            target="_blank"
+            rel="norefferer"
+          >
+            <div className=" border rounded-full hover:border-blue-600 hover-ease">
+              <Image
+                className="cursor-pointer"
+                src="/icons/tnet-icon.svg"
+                alt="user-icon"
+                width={40}
+                height={40}
+              />
+            </div>
+          </Link>
         </li>
       </ul>
     </div>
