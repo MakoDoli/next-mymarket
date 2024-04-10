@@ -1,4 +1,4 @@
-"use client";
+//"use client";
 import { getCurrentUser } from "@/services/getUser";
 import { useQuery } from "@tanstack/react-query";
 

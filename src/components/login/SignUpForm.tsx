@@ -10,7 +10,6 @@ export default function SignUpForm() {
   const submitFunction: SubmitHandler<FieldValues> = async (formData) => {
     const { fullName, email, password } = formData;
     signUp({ fullName, email, password });
-    console.log(fullName);
   };
 
   return (
