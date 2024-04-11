@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function CartCard({ product }: Props) {
-  const { imageURL, seller, title, description, price, vip, id, category } =
+  const { image, seller, title, description, price, vip, id, category } =
     product;
   const { total, setTotal, cartItems, setCartItems, itemCount, setItemCount } =
     useContext(UserActivityContext);
@@ -40,7 +40,7 @@ export default function CartCard({ product }: Props) {
           )}
           <Image
             className=" rounded-lg"
-            src={imageURL}
+            src={image}
             alt="product-image"
             width={116}
             height={116}

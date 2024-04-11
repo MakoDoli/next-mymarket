@@ -26,15 +26,17 @@ export default function Navbar() {
     <div>
       <ul className="flex gap-2 lg:gap-6 items-center">
         <li>
-          <div className="flex items-center bg-amber-100 hover:bg-amber-200 gap-2 bg-opacity-90 cursor-pointer w-32 h-10 rounded-xl px-3 hover-ease">
-            <Image
-              src="/icons/plus-icon.png"
-              alt="plus"
-              width={16}
-              height={16}
-            />
-            <p className="text-xs">დამატება</p>
-          </div>
+          <Link href={`${isAuthenticated ? "/new" : "/register"}`}>
+            <div className="flex items-center bg-amber-100 hover:bg-amber-200 gap-2 bg-opacity-90 cursor-pointer w-32 h-10 rounded-xl px-3 hover-ease">
+              <Image
+                src="/icons/plus-icon.png"
+                alt="plus"
+                width={16}
+                height={16}
+              />
+              <p className="text-xs">დამატება</p>
+            </div>
+          </Link>
         </li>
         <li className="flex gap-2 lg:gap-6">
           <Image

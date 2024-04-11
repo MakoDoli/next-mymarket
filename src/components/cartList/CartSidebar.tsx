@@ -1,11 +1,12 @@
 import { slimFont } from "@/fonts/slimfont";
-import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
 import { userMenu } from "@/utils/userMenu";
 import Image from "next/image";
-import React from "react";
+import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
+import Link from "next/link";
 
 export default function CartSidebar() {
   const { user } = useGetCurrentUser();
+
   const username = user?.identities
     ? user.identities[0].identity_data?.fullName
     : "შენი სახელი";
@@ -29,7 +30,19 @@ export default function CartSidebar() {
             className="cursor-pointer hover:text-yellow-400 hover-ease  p-4"
             key={index}
           >
-            {item}
+            <Link
+              href={`${
+                item === "ჩემი რჩეულები"
+                  ? "/favorites"
+                  : item === "ჩემი განცხადებები"
+                  ? "/my-products"
+                  : item === "განცხადების დამატება"
+                  ? "/new"
+                  : ""
+              }`}
+            >
+              {item}
+            </Link>
           </li>
         ))}
       </ul>

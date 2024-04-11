@@ -15,7 +15,7 @@ export default async function DisplayAllProducts() {
         {vips.map((product, index) => (
           <MainPageCard
             id={product.id}
-            src={product.imageURL}
+            src={product.image}
             title={product.title}
             price={product.price}
             key={index}
@@ -28,7 +28,7 @@ export default async function DisplayAllProducts() {
         {products.slice(0, 12).map((product, index) => (
           <MainPageCard
             id={product.id}
-            src={product.imageURL}
+            src={product.image}
             title={product.title}
             price={product.price}
             key={index}

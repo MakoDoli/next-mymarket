@@ -9,7 +9,7 @@ type Props2 = {
 };
 
 export default function ProductCard({ product }: Props2) {
-  const { imageURL, seller, title, description, price, vip, id, category } =
+  const { image, seller, title, description, price, vip, id, category } =
     product;
 
   return (
@@ -21,7 +21,7 @@ export default function ProductCard({ product }: Props2) {
       )}
       <Image
         className="w-[216px] h-[180px] rounded-lg"
-        src={imageURL}
+        src={image}
         alt="product-image"
         width={216}
         height={216}

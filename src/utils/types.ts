@@ -5,6 +5,6 @@ export type Product = {
   seller: string;
   vip: boolean;
   description: string;
-  imageURL: string;
+  image: string;
   price: number;
 };
