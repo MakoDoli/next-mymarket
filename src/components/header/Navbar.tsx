@@ -26,7 +26,7 @@ export default function Navbar() {
     <div>
       <ul className="flex gap-2 lg:gap-6 items-center">
         <li>
-          <Link href={`${isAuthenticated ? "/new" : "/register"}`}>
+          <Link href={`${isAuthenticated ? "/new" : "/login"}`}>
             <div className="flex items-center bg-amber-100 hover:bg-amber-200 gap-2 bg-opacity-90 cursor-pointer w-32 h-10 rounded-xl px-3 hover-ease">
               <Image
                 src="/icons/plus-icon.png"
