@@ -32,7 +32,7 @@ export default function CreateNewProduct() {
       )}
       <input
         className=" outline-none border border-1 border-gray-400 rounded-lg p-3 text-black font-thin"
-        id="productTitle"
+        id="title"
         type="text"
         {...register("title", {
           required: "This field is requierd",
@@ -46,7 +46,7 @@ export default function CreateNewProduct() {
       )}
       <select
         className=" outline-none border border-1 border-gray-400 rounded-lg p-3 text-black font-thin"
-        id="seller"
+        id="category"
         {...register("category", {
           required: "აირჩიე კატეგორია",
         })}
