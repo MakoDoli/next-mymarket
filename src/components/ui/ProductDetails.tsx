@@ -7,23 +7,23 @@ import { slimFont } from "@/fonts/slimfont";
 import AddButton from "../shared/AddButton";
 import AddToFavorites from "../shared/AddToFav";
 import CategoryLinks from "../shared/CategoryLinks";
-//import { NextRequest } from "next/server";
-//import { revalidatePath } from "next/cache";
+import { NextRequest } from "next/server";
+import { revalidatePath } from "next/cache";
 
-// export async function GET(request: NextRequest) {
-//   const path = request.nextUrl.searchParams.get("path");
+export async function GET(request: NextRequest) {
+  const path = request.nextUrl.searchParams.get("path");
 
-//   if (path) {
-//     revalidatePath(path);
-//     return Response.json({ revalidated: true, now: Date.now() });
-//   }
+  if (path) {
+    revalidatePath(path);
+    return Response.json({ revalidated: true, now: Date.now() });
+  }
 
-//   return Response.json({
-//     revalidated: false,
-//     now: Date.now(),
-//     message: "Missing path to revalidate",
-//   });
-// }
+  return Response.json({
+    revalidated: false,
+    now: Date.now(),
+    message: "Missing path to revalidate",
+  });
+}
 
 type Props = {
   id: number;
@@ -39,7 +39,7 @@ export default async function ProductDetails({ category, id }: Props) {
     id
   );
   const { title, description, price, seller, image } = data[0];
-
+  console.log(data[0]);
   return (
     <main className="bg-gray-100 p-4 lg:p-12 ">
       <AdContent />
