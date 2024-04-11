@@ -38,7 +38,7 @@ export default async function ProductDetails({ category, id }: Props) {
     category === "computers" ? "laptops" : category,
     id
   );
-  const { title, description, price, seller, imageURL } = data[0];
+  const { title, description, price, seller, image } = data[0];
 
   return (
     <main className="bg-gray-100 p-4 lg:p-12 ">
@@ -48,7 +48,7 @@ export default async function ProductDetails({ category, id }: Props) {
         <div className="flex flex-col items-end gap-8 w-[350px] h-[350px] border border-y-gray-400 rounded-xl p-2 lg:w-[420px] lg:h-[400px]">
           <img
             className="w-[300px] h-[250px] lg:w-[450px] lg:h-[320px] rounded-lg"
-            src={imageURL}
+            src={image}
             alt="product image"
           />
           <AddToFavorites product={data[0]} />
