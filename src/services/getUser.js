@@ -10,6 +10,23 @@ export async function userLogin({ email, password }) {
   return data;
 }
 
+export async function resetPassword(password) {
+  const { data, error } = await supabase.auth.updateUser({
+    password: password,
+  });
+  if (error) throw new Error(error.message);
+  return data;
+}
+
+export async function sendLink(email) {
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: `${window.location.href}reset`,
+  });
+
+  if (error) throw new Error(error.message);
+  return data;
+}
+
 export async function register({ fullName, email, password }) {
   const { data, error } = await supabase.auth.signUp({
     email,

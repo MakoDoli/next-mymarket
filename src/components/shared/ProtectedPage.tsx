@@ -1,9 +1,7 @@
 "use client";
 import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
-import { ReactNode, useEffect } from "react";
+import { ReactNode } from "react";
 import Spinner from "../ui/Spinner";
-import { useRouter } from "next/navigation";
-import { getCurrentUser } from "@/services/getUser";
 import Link from "next/link";
 
 type Props = {

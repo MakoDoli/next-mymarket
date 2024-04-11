@@ -1,9 +1,13 @@
 "use client";
-import React, { useState } from "react";
-
+import { useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
+import { slimFont } from "@/fonts/slimfont";
 
-export default function LoginForm() {
+type Props = {
+  setShowReset: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export default function LoginForm({ setShowReset }: Props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { mutate, isPending } = useLogin();
@@ -36,6 +40,12 @@ export default function LoginForm() {
         required
         onChange={(e) => setPassword(e.target.value)}
       />
+      <p
+        onClick={() => setShowReset(true)}
+        className={`${slimFont.className} text-xs font-this text-blue-600 cursor-pointer mb-4`}
+      >
+        დაგავიწყდა პაროლი?
+      </p>
       <button
         className="p-3 bg-yellow-400 hover:bg-yellow-300 hover-ease rounded-lg hover:text-black"
         disabled={isPending}
