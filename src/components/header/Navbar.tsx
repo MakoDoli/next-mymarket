@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
-import { UserActivityContext } from "../context/UserActivityContext";
+import { UserActivityContext } from "../../context/UserActivityContext";
 import { useLogout } from "@/hooks/useLogout";
 import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
 import { useRouter } from "next/navigation";

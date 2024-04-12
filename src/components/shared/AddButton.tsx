@@ -2,7 +2,7 @@
 import { Product } from "@/utils/types";
 
 import React, { useContext } from "react";
-import { UserActivityContext } from "../context/UserActivityContext";
+import { UserActivityContext } from "../../context/UserActivityContext";
 
 type Props2 = {
   product: Product;

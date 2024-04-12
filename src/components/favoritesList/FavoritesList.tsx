@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext } from "react";
-import { UserActivityContext } from "../context/UserActivityContext";
+import { UserActivityContext } from "../../context/UserActivityContext";
 import ProductCard from "../ui/ProductCard";
 
 export default function FavoritesList() {

@@ -5,6 +5,12 @@ export default async function getAllProducts() {
   const mobiles = await getProducts("mobiles");
   const laptops = await getProducts("laptops");
   const tvs = await getProducts("tvs");
+
+  // const [mobiles, laptops, tvs] = await Promise.all([
+  //   getProducts("mobiles"),
+  //   getProducts("laptops"),
+  //   getProducts("tvs"),
+  // ]);
   const allProducts: Product[] = [...mobiles, ...laptops, ...tvs];
 
   function shuffleArray(array: Product[]) {

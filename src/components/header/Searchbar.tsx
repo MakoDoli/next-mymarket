@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import { Input } from "../ui/input";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { UserActivityContext } from "../context/UserActivityContext";
+import { UserActivityContext } from "../../context/UserActivityContext";
 
 export default function Searchbar() {
   const timeoutId = useRef<NodeJS.Timeout | null>(null);

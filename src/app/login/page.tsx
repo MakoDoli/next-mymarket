@@ -1,5 +1,4 @@
 import AuthCard from "@/components/login/AuthCard";
-
 import { Metadata } from "next";
 import React from "react";
 

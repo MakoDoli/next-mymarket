@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext } from "react";
-import { UserActivityContext } from "../context/UserActivityContext";
+import { UserActivityContext } from "../../context/UserActivityContext";
 import CartSidebar from "./CartSidebar";
 import CartCard from "./CartCard";
 import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";

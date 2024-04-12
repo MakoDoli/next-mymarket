@@ -5,7 +5,7 @@ import { categoriesData } from "@/utils/categoriesData";
 import CategoryCard from "./CategoryCard";
 import { slimFont } from "@/fonts/slimfont";
 import LastSearch from "./LastSearch";
-import { UserActivityContext } from "../context/UserActivityContext";
+import { UserActivityContext } from "../../context/UserActivityContext";
 
 export default function CategoriesCarousel() {
   const [all, setAll] = useState(false);

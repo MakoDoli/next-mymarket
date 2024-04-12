@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import localFont from "next/font/local";
-import { UserActivityProvider } from "@/components/context/UserActivityContext";
+import { UserActivityProvider } from "@/context/UserActivityContext";
 import Provider from "@/utils/queryProvider";
 import { Toaster } from "react-hot-toast";
 
