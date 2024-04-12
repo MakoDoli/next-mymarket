@@ -1,4 +1,4 @@
-import ProductDetails from "@/components/ui/ProductDetails";
+import ProductDetails from "@/components/shared/ProductDetails";
 import Spinner from "@/components/ui/Spinner";
 
 import { getMetadata } from "@/services/metadata";

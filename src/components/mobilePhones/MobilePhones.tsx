@@ -1,15 +1,16 @@
-import getProducts from "@/services/getProducts";
+"use client";
 import React from "react";
-import ProductCard from "../ui/ProductCard";
+import ProductCard from "../shared/ProductCard";
 import Sidebar from "../sidebar/Sidebar";
 import CategoryLinks from "../shared/CategoryLinks";
+import { useGetMobiles } from "@/hooks/useGetAllProducts";
 
-export default async function MobilePhones({ query }: { query: string }) {
-  const data = await getProducts("mobiles");
-
+export default function MobilePhones({ query }: { query: string }) {
+  // const data = await getProducts("mobiles");
+  const data = useGetMobiles();
   const list = !query
     ? data
-    : data.filter((product) =>
+    : data?.filter((product) =>
         product.title.toLowerCase().includes(query.toLowerCase())
       );
 
@@ -21,7 +22,7 @@ export default async function MobilePhones({ query }: { query: string }) {
           <Sidebar />
         </div>
         <div className="flex  flex-wrap gap-x-3 gap-y-6">
-          {list.map((product) => (
+          {list?.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

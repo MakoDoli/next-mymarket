@@ -1,8 +1,8 @@
 import { Product } from "@/utils/types";
 import Image from "next/image";
 import Link from "next/link";
-import AddToFavorites from "../shared/AddToFav";
-import AddToCart from "../shared/AddToCart";
+import AddToFavorites from "./AddToFav";
+import AddToCart from "./AddToCart";
 
 type Props2 = {
   product: Product;

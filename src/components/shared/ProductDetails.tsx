@@ -2,11 +2,11 @@
 import { getProductDetails } from "@/services/getProducts";
 import Image from "next/image";
 import React from "react";
-import AdContent from "./AdContent";
+import AdContent from "../ui/AdContent";
 import { slimFont } from "@/fonts/slimfont";
-import AddButton from "../shared/AddButton";
-import AddToFavorites from "../shared/AddToFav";
-import CategoryLinks from "../shared/CategoryLinks";
+import AddButton from "./AddButton";
+import AddToFavorites from "./AddToFav";
+import CategoryLinks from "./CategoryLinks";
 import { NextRequest } from "next/server";
 import { revalidatePath } from "next/cache";
 

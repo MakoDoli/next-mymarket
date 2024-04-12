@@ -22,7 +22,7 @@ export default function LoginForm({ setShowReset }: Props) {
       className="flex flex-col gap-3 w-96 mx-auto text-sm text-gray-600"
       onSubmit={handleSubmit}
     >
-      <label htmlFor="email">Email address</label>
+      <label htmlFor="email">ელ-ფოსტა</label>
       <input
         className=" outline-none border border-1 border-gray-400 rounded-lg p-3 text-black font-thin"
         id="email"
@@ -31,7 +31,7 @@ export default function LoginForm({ setShowReset }: Props) {
         required
         onChange={(e) => setEmail(e.target.value)}
       />
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password">პაროლი</label>
       <input
         className=" outline-none border border-1 border-gray-400 rounded-lg p-3 text-black font-thin"
         id="password"

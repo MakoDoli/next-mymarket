@@ -17,7 +17,7 @@ export default function SignUpForm() {
       className="flex flex-col gap-3 w-96 mx-auto text-sm text-gray-600"
       onSubmit={handleSubmit(submitFunction)}
     >
-      <label htmlFor="fullName">Full name</label>
+      <label htmlFor="fullName">სახელი</label>
       {errors.fullName && (
         <p className="text-xs text-red-400">{`${errors.fullName?.message}`}</p>
       )}
@@ -30,7 +30,7 @@ export default function SignUpForm() {
           maxLength: 30,
         })}
       />
-      <label htmlFor="email">Email address </label>
+      <label htmlFor="email">ელ-ფოსტა </label>
       {errors.email && (
         <p className="text-xs text-red-400">{`${errors.email?.message}`}</p>
       )}
@@ -46,7 +46,7 @@ export default function SignUpForm() {
           },
         })}
       />
-      <label htmlFor="password">Password (min 8 characters)</label>
+      <label htmlFor="password">პაროლი (მინ 8 სიმბოლო)</label>
       {errors.password && (
         <p className="text-xs text-red-400">{`${errors.password?.message}`}</p>
       )}
@@ -62,7 +62,7 @@ export default function SignUpForm() {
           },
         })}
       />
-      <label htmlFor="confirm">Repeat password</label>
+      <label htmlFor="confirm">გაიმეორეთ პაროლი</label>
       {errors.confirm && (
         <p className="text-xs text-red-400">{`${errors.confirm?.message}`}</p>
       )}
@@ -78,7 +78,7 @@ export default function SignUpForm() {
       />
 
       <button className="p-3 bg-yellow-400 hover:bg-yellow-300 hover-ease rounded-lg hover:text-black">
-        Sign Up
+        დარეგისტრირდი
       </button>
     </form>
   );

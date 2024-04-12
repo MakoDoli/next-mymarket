@@ -12,11 +12,12 @@ export default function CreateNewProduct() {
   const { user } = useGetCurrentUser();
   const router = useRouter();
   const queryClient = useQueryClient();
+
   const submitFunction: SubmitHandler<FieldValues> = async (formData) => {
     addNewProduct({ ...formData, image: formData.image[0] }, user?.id);
 
     queryClient.invalidateQueries({
-      queryKey: ["userProducts"],
+      queryKey: ["userProducts", formData.category],
     });
     router.push("/my-products");
   };

@@ -9,7 +9,7 @@ export function useSignup() {
     mutationFn: register,
     onSuccess: (user) => {
       router.push("/cart");
-      toast.success("Account created");
+      toast.success("ანგარიში წარმატებით შეიქმნა");
     },
   });
 
