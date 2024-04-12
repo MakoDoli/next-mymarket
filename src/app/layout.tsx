@@ -5,6 +5,7 @@ import Footer from "@/components/footer/Footer";
 import localFont from "next/font/local";
 import { UserActivityProvider } from "@/components/context/UserActivityContext";
 import Provider from "@/utils/queryProvider";
+import { Toaster } from "react-hot-toast";
 
 const myFont = localFont({
   src: "../fonts/TBCXMedium.ttf",
@@ -31,8 +32,29 @@ export default function RootLayout({
             <Header />
 
             {children}
+
             <Footer />
           </Provider>
+          <Toaster
+            position="top-center"
+            gutter={12}
+            containerStyle={{ margin: "8px" }}
+            toastOptions={{
+              success: {
+                duration: 3000,
+              },
+              error: {
+                duration: 3000,
+              },
+              style: {
+                fontSize: "16px",
+                maxWidth: "500px",
+                padding: "16px 12px",
+                backgroundColor: "white",
+                color: "grey",
+              },
+            }}
+          />
         </UserActivityProvider>
       </body>
     </html>

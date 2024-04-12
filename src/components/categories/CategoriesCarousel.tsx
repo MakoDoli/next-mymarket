@@ -10,7 +10,8 @@ export default function CategoriesCarousel() {
 
   return (
     <div>
-      <div className="flex flex-col gap-6 md:gap-1 md:flex-row justify-between text-gray-500 m-4 lg:m-12 ">
+      <hr></hr>
+      <div className="flex flex-col gap-6 md:gap-1 md:flex-row justify-between text-gray-500 m-4 lg:mx-12 ">
         <div
           className={`${slimFont.className} flex flex-wrap text-sm md:flex-nowrap gap-2 lg:gap-8 items-center`}
         >
@@ -41,7 +42,8 @@ export default function CategoriesCarousel() {
           </p>
         </div>
       </div>
-      <div className="ml-4 lg:ml-12 flex gap-4 overflow-hidden relative flex-wrap lg:flex-nowrap">
+      <hr></hr>
+      <div className="ml-4 mt-8 lg:ml-12 flex gap-4 overflow-hidden relative flex-wrap lg:flex-nowrap">
         <div
           className=" min-w-[180px] z-10 h-32 bg-black opacity-90 rounded-2xl p-6 cursor-pointer"
           onClick={() => setAll(!all)}

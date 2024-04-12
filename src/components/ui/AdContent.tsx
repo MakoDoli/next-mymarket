@@ -3,7 +3,7 @@ import React from "react";
 
 export default function AdContent() {
   return (
-    <div className="bg-gray-100 px-4 lg:px-12 pt-6 ">
+    <div className="bg-gray-100 px-4 lg:px-12 pt-12 ">
       <div className="flex justify-between items-center bg-gradient-to-r 2xl:mx-10 from-white via-white to-blue-100 rounded-xl py-4 pl-8 pr-8 md:pr-24 overflow-x-hidden ">
         <Image
           src="/logos/smart.jpg"

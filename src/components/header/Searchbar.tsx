@@ -41,7 +41,7 @@ export default function Searchbar() {
   return (
     <>
       <label className="text-white text-xs " htmlFor="search-input">
-        Search for item
+        ძებნა
       </label>
       <Input
         value={searchValue}

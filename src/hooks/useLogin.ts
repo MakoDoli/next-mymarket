@@ -10,8 +10,7 @@ export function useLogin() {
     onSuccess: () => router.push("/cart"),
 
     onError: (err) => {
-      console.log("ERROR", err);
-      toast.error("Wrong login or password");
+      toast.error("არასწორი მომხმარებელი ან პაროლი");
     },
   });
   return { mutate, isPending };

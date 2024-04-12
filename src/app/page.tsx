@@ -5,7 +5,7 @@ import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <main className="xl:px-8">
+    <main className="2xl:px-8">
       <CategoriesCarousel />
       <Suspense fallback={<Spinner />}>
         <DisplayAllProducts />
