@@ -12,7 +12,8 @@ export default function Searchbar() {
   const pathName = usePathname();
   const { replace } = useRouter();
 
-  const { searchValue, setSearchValue } = useContext(UserActivityContext);
+  const { searchValue, setSearchValue, setLastSearch } =
+    useContext(UserActivityContext);
 
   function handleChange(searchItem: string) {
     if (timeoutId.current) clearTimeout(timeoutId.current);
@@ -21,6 +22,7 @@ export default function Searchbar() {
         const params = new URLSearchParams(searchParams);
         if (searchItem) {
           params.set("query", searchItem);
+          setLastSearch((prev: String[]) => [searchItem, ...prev]);
         } else {
           params.delete("query");
         }

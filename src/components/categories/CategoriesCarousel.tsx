@@ -1,12 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { categoriesData } from "@/utils/categoriesData";
 import CategoryCard from "./CategoryCard";
 import { slimFont } from "@/fonts/slimfont";
+import LastSearch from "./LastSearch";
+import { UserActivityContext } from "../context/UserActivityContext";
 
 export default function CategoriesCarousel() {
   const [all, setAll] = useState(false);
+
+  const { lastSearch } = useContext(UserActivityContext);
 
   return (
     <div>
@@ -43,6 +47,8 @@ export default function CategoriesCarousel() {
         </div>
       </div>
       <hr></hr>
+      <LastSearch arr={lastSearch} />
+      <h3 className="ml-4 mt-8 lg:ml-12 text-sm">ძებნა კატეგორიის მიხედვით</h3>
       <div className="ml-4 mt-8 lg:ml-12 flex gap-4 overflow-hidden relative flex-wrap lg:flex-nowrap">
         <div
           className=" min-w-[180px] z-10 h-32 bg-black opacity-90 rounded-2xl p-6 cursor-pointer"

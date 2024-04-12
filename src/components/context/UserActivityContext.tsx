@@ -12,6 +12,8 @@ export const UserActivityContext = createContext<UserActivityContextType>({
   setItemCount: () => {},
   favorites: [],
   setFavorites: () => {},
+  lastSearch: [],
+  setLastSearch: () => {},
   searchValue: "",
   setSearchValue: () => {},
   category: false,
@@ -26,6 +28,8 @@ type UserActivityContextType = {
   setItemCount: (arr: (prev: Product[]) => Product[]) => void;
   favorites: Product[];
   setFavorites: (arr: (prev: Product[]) => Product[]) => void;
+  lastSearch: String[];
+  setLastSearch: (arr: (prev: String[]) => String[]) => void;
   category: boolean;
   setCategory: React.Dispatch<React.SetStateAction<boolean>>;
   searchValue: string;
@@ -41,6 +45,7 @@ export const UserActivityProvider = ({ children }: Props) => {
   const [category, setCategory] = useState(false);
   const [total, setTotal] = useState(0);
   const [itemCount, setItemCount] = useState(cartItems);
+  const [lastSearch, setLastSearch] = useState<String[]>([]);
 
   return (
     <UserActivityContext.Provider
@@ -57,6 +62,8 @@ export const UserActivityProvider = ({ children }: Props) => {
         setSearchValue,
         category,
         setCategory,
+        lastSearch,
+        setLastSearch,
       }}
     >
       {children}
