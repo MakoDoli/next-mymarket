@@ -43,12 +43,19 @@ const config = {
           "0%": { transform: "translateX(100%)" },
           "100%": { transform: "translateX(-10%)" },
         },
+        "scale-up": {
+          "0%": { transform: "scale(1)" },
+          "10%": { transform: "scale(0.9)" },
+          "20%": { transform: "scale(1)", opacity: "1" },
+          "100%": { transform: "scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "move-spin": "move-spin 12s  ease-in-out  infinite ",
         "move-left": "move-left 1s  ease-out 1 forwards ",
+        "scale-up": "scale-up 10s ease-in-out infinite",
       },
       variants: {
         fill: ["hover", "focus"],
