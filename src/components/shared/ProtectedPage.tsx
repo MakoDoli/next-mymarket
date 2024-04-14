@@ -1,8 +1,8 @@
 "use client";
-import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
 import { ReactNode } from "react";
 import Spinner from "../ui/Spinner";
 import Link from "next/link";
+import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
 
 type Props = {
   children: ReactNode;

@@ -3,8 +3,9 @@ import React, { useContext } from "react";
 import { UserActivityContext } from "../../context/UserActivityContext";
 import CartSidebar from "./CartSidebar";
 import CartCard from "./CartCard";
-import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
+
 import Link from "next/link";
+import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
 
 export default function CartList() {
   const { cartItems, total } = useContext(UserActivityContext);

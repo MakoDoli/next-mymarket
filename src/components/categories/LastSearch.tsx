@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { slimFont } from "@/fonts/slimfont";
-import React from "react";
+
 type Props = {
   arr: String[];
 };

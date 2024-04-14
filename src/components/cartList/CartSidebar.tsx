@@ -1,7 +1,8 @@
 import { slimFont } from "@/fonts/slimfont";
+import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
 import { userMenu } from "@/utils/userMenu";
 import Image from "next/image";
-import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
+
 import Link from "next/link";
 
 export default function CartSidebar() {

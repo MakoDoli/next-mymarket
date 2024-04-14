@@ -1,6 +1,5 @@
 import Image from "next/image";
-import React, { Suspense } from "react";
-
+import  { Suspense } from "react";
 import Navbar from "./Navbar";
 import Link from "next/link";
 import Searchbar from "./Searchbar";

@@ -1,7 +1,7 @@
 import { slimFont } from "@/fonts/slimfont";
 import { useReset } from "@/hooks/useLogin";
-import supabase from "@/services/supabase";
-import React, { useState } from "react";
+import { useState } from "react";
+
 type Props = {
   setShowReset: React.Dispatch<React.SetStateAction<boolean>>;
 };

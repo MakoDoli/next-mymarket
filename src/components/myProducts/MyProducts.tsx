@@ -1,7 +1,7 @@
 "use client";
+import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
 import CartSidebar from "../cartList/CartSidebar";
 import MyList from "./MyList";
-import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
 
 export default function MyProducts() {
   const { user } = useGetCurrentUser();

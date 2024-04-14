@@ -16,7 +16,7 @@ export default function ResetPassword() {
       className="flex flex-col gap-3 w-96 mx-auto text-sm text-gray-600"
       onSubmit={handleSubmit(submitFunction)}
     >
-      <label htmlFor="password">New Password (min 8 characters)</label>
+      <label htmlFor="password">ახალი პაროლი (მინ 8 სიმბოლო)</label>
       {errors.password && (
         <p className="text-xs text-red-400">{`${errors.password?.message}`}</p>
       )}
@@ -32,7 +32,7 @@ export default function ResetPassword() {
           },
         })}
       />
-      <label htmlFor="confirm">Repeat New Password</label>
+      <label htmlFor="confirm">გაიმეორე ახალი პაროლი</label>
       {errors.confirm && (
         <p className="text-xs text-red-400">{`${errors.confirm?.message}`}</p>
       )}
@@ -48,7 +48,7 @@ export default function ResetPassword() {
       />
 
       <button className="p-3 bg-yellow-400 hover:bg-yellow-300 hover-ease rounded-lg hover:text-black">
-        Reset
+        შეცვლა
       </button>
     </form>
   );

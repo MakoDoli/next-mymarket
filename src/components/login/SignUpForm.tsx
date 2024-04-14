@@ -62,7 +62,7 @@ export default function SignUpForm() {
           },
         })}
       />
-      <label htmlFor="confirm">გაიმეორეთ პაროლი</label>
+      <label htmlFor="confirm">გაიმეორე პაროლი</label>
       {errors.confirm && (
         <p className="text-xs text-red-400">{`${errors.confirm?.message}`}</p>
       )}

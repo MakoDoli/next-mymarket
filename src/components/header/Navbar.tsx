@@ -5,8 +5,9 @@ import Link from "next/link";
 import React, { useContext } from "react";
 import { UserActivityContext } from "../../context/UserActivityContext";
 import { useLogout } from "@/hooks/useLogout";
-import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
+
 import { useRouter } from "next/navigation";
+import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
 
 export default function Navbar() {
   const { favorites, cartItems } = useContext(UserActivityContext);
