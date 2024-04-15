@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import localFont from "next/font/local";
 import { UserActivityProvider } from "@/context/UserActivityContext";
 import Provider from "@/utils/queryProvider";
 import { Toaster } from "react-hot-toast";
+import Header from "@/components/header/Header";
 
 const myFont = localFont({
   src: "../fonts/TBCXMedium.ttf",

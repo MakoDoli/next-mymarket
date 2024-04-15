@@ -14,10 +14,12 @@ export default function SignUpForm() {
 
   return (
     <form
-      className="flex flex-col gap-3 w-96 mx-auto text-sm text-gray-600"
+      className="flex flex-col gap-3 w-full mx-auto text-sm text-gray-600"
       onSubmit={handleSubmit(submitFunction)}
     >
-      <label htmlFor="fullName">სახელი</label>
+      <label htmlFor="fullName" className="text-white text-xs">
+        სახელი
+      </label>
       {errors.fullName && (
         <p className="text-xs text-red-400">{`${errors.fullName?.message}`}</p>
       )}
@@ -25,12 +27,15 @@ export default function SignUpForm() {
         className=" outline-none border border-1 border-gray-400 rounded-lg p-3 text-black font-thin"
         id="fullName"
         type="text"
+        placeholder="სახელი"
         {...register("fullName", {
           required: "This field is requierd",
           maxLength: 30,
         })}
       />
-      <label htmlFor="email">ელ-ფოსტა </label>
+      <label htmlFor="email" className="text-white text-xs h-1">
+        ელ-ფოსტა{" "}
+      </label>
       {errors.email && (
         <p className="text-xs text-red-400">{`${errors.email?.message}`}</p>
       )}
@@ -38,6 +43,7 @@ export default function SignUpForm() {
         className=" outline-none border border-1 border-gray-400 rounded-lg p-3 text-black font-thin"
         id="email"
         type="email"
+        placeholder="ელფოსტა"
         {...register("email", {
           required: "This field is required",
           pattern: {
@@ -46,7 +52,9 @@ export default function SignUpForm() {
           },
         })}
       />
-      <label htmlFor="password">პაროლი (მინ 8 სიმბოლო)</label>
+      <label htmlFor="password" className="text-white text-xs h-1">
+        პაროლი
+      </label>
       {errors.password && (
         <p className="text-xs text-red-400">{`${errors.password?.message}`}</p>
       )}
@@ -54,6 +62,7 @@ export default function SignUpForm() {
         className=" outline-none border border-1 border-gray-400 rounded-lg p-3 text-black font-thin"
         id="password"
         type="password"
+        placeholder="პაროლი (მინ 8 სიმბოლო)"
         {...register("password", {
           required: "This field is requierd",
           minLength: {
@@ -62,7 +71,9 @@ export default function SignUpForm() {
           },
         })}
       />
-      <label htmlFor="confirm">გაიმეორე პაროლი</label>
+      <label htmlFor="confirm" className="text-white text-xs h-1">
+        გაიმეორე პაროლი
+      </label>
       {errors.confirm && (
         <p className="text-xs text-red-400">{`${errors.confirm?.message}`}</p>
       )}
@@ -70,6 +81,7 @@ export default function SignUpForm() {
         className=" outline-none border border-1 border-gray-400 rounded-lg p-3 text-black font-thin"
         id="confirm"
         type="password"
+        placeholder="გაიმეორეთ პაროლი"
         {...register("confirm", {
           required: "This field is requierd",
           validate: (value) =>
@@ -77,7 +89,7 @@ export default function SignUpForm() {
         })}
       />
 
-      <button className="p-3 bg-yellow-400 hover:bg-yellow-300 hover-ease rounded-lg hover:text-black">
+      <button className="p-4 bg-blue-500 hover:bg-blue-300 hover-ease text-white text-base rounded-full">
         დარეგისტრირდი
       </button>
     </form>

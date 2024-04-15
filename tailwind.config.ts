@@ -43,6 +43,14 @@ const config = {
           "0%": { transform: "translateX(100%)" },
           "100%": { transform: "translateX(-10%)" },
         },
+        "slider-up": {
+          "0%": { transform: "translateY(0%)" },
+          "100%": { transform: "translateY(-200%)" },
+        },
+        "slider-down": {
+          "0%": { transform: "translateY(-250%)" },
+          "100%": { transform: "translateY(0%)" },
+        },
         "scale-up": {
           "0%": { transform: "scale(1)" },
           "10%": { transform: "scale(0.9)" },
@@ -56,6 +64,8 @@ const config = {
         "move-spin": "move-spin 12s  ease-in-out  infinite ",
         "move-left": "move-left 1s  ease-out 1 forwards ",
         "scale-up": "scale-up 10s ease-in-out infinite",
+        "slider-up": "slider-up 100s  linear infinite",
+        "slider-down": "slider-down 100s linear infinite",
       },
       variants: {
         fill: ["hover", "focus"],
