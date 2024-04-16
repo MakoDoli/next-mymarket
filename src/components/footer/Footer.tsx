@@ -1,10 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
 import Image from "next/image";
 import React from "react";
 import ScrollUp from "./ScrollUp";
 import MobileAppLogos from "./MobileAppsLogos";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname.includes("login"))
+    return <footer className="hidden">login</footer>;
   return (
     <footer className="px-4 lg:px-12 py-5 ">
       <MobileAppLogos />

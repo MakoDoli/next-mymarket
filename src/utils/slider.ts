@@ -16,7 +16,7 @@ export const loginSlider = [
   },
   {
     image: "/images/swoop.png",
-    logo: "/icons/swopp.png",
+    logo: "/logos/swopp.png",
     text: "ფასდაკლების ვაუჩერები, კინოს ბილეთები და სხვა შეთავაზებები",
   },
   {
