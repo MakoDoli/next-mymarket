@@ -17,7 +17,7 @@ export default function ForgotPass({ setShowReset }: Props) {
 
   return (
     <form
-      className="flex flex-col gap-3 w-96 mx-auto text-sm text-gray-600"
+      className="flex flex-col gap-3  mx-auto text-sm text-gray-600 mt-10"
       onSubmit={handleSubmit}
     >
       <label htmlFor="email">
@@ -32,7 +32,7 @@ export default function ForgotPass({ setShowReset }: Props) {
         onChange={(e) => setEmail(e.target.value)}
       />
 
-      <button className="p-3 bg-yellow-400 hover:bg-yellow-300 hover-ease rounded-lg hover:text-black">
+      <button className="p-3 bg-blue-500 hover:bg-blue-300 hover-ease text-base rounded-full text-white">
         გაგზავნა
       </button>
       <p

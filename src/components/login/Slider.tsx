@@ -1,13 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { slimFont } from "@/fonts/slimfont";
 import { loginSlider, reverseSlider } from "@/utils/slider";
-import Image from "next/image";
 import React from "react";
 
 export default function Slider() {
   return (
     <div
-      className={`${slimFont.className} flex gap-6 flex-col lg:flex-row hover:paused min-h-screen`}
+      className={`${slimFont.className} flex gap-6  lg:flex-row hover:paused min-h-screen`}
     >
       <div className="flex animate-slider-up flex-col gap-6 hover:paused ">
         {loginSlider.map((item, index) => (

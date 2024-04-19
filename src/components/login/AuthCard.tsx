@@ -10,10 +10,10 @@ export default function AuthCard() {
   const [signIn, setSignIn] = useState(true);
   const [showReset, setShowReset] = useState<boolean>(false);
 
-  if (showReset) return <ForgotPass setShowReset={setShowReset} />;
+  // if (showReset) return <ForgotPass setShowReset={setShowReset} />;
   return (
     <div className="flex ">
-      <div className="px-24  w-1/2 max-w-[650px] my-12 ">
+      <div className=" px-8  lg:px-24 w-full  md:w-1/2 max-w-[650px] mt-12 ">
         <div className="flex mb-14 justify-between">
           <svg
             width="185"
@@ -68,7 +68,7 @@ export default function AuthCard() {
             ></path>
           </svg>
           <select
-            className={`${slimFont.className} outline-none border border-1 border-gray-400 rounded-lg p-2 text-sm`}
+            className={`${slimFont.className} outline-none border border-1 border-gray-400 rounded-lg p-1 text-xs md:p-2 md:text-sm`}
           >
             <option value="ქართული">ქართული</option>
             <option value="english">English</option>
@@ -76,12 +76,23 @@ export default function AuthCard() {
         </div>
         <div className="flex justify-between items-center">
           <h1 className="mt-5 text-3xl font-bold">
-            {signIn ? "ავტორიზაცია" : "ანგარიშის შექმნა"}
+            {signIn && !showReset
+              ? "ავტორიზაცია"
+              : !signIn && !showReset
+              ? "ანგარიშის შექმნა"
+              : "პაროლის აღდგენა"}
           </h1>
         </div>
-        {signIn ? <LoginForm setShowReset={setShowReset} /> : <SignUpForm />}
+        {showReset && <ForgotPass setShowReset={setShowReset} />}
+        {signIn && !showReset ? (
+          <LoginForm setShowReset={setShowReset} />
+        ) : !signIn && !showReset ? (
+          <SignUpForm />
+        ) : (
+          ""
+        )}
         <div className={`${slimFont.className} flex justify-center mt-3`}>
-          {signIn ? (
+          {signIn && !showReset ? (
             <p className="text-gray-500">
               არ გაქვს ანგარიში? -{" "}
               <span
@@ -92,7 +103,7 @@ export default function AuthCard() {
                 შექმენი
               </span>
             </p>
-          ) : (
+          ) : !signIn && !showReset ? (
             <p className="text-gray-500">
               არსებული ანგარიშით{" "}
               <span
@@ -103,10 +114,12 @@ export default function AuthCard() {
                 შესვლა
               </span>
             </p>
+          ) : (
+            ""
           )}
         </div>
       </div>
-      <div className="w-1/2  border-l h-screen border-gray-200 flex justify-center  overflow-hidden">
+      <div className="w-1/2  border-l h-screen border-gray-200 hidden md:flex  justify-center  overflow-hidden">
         <Slider />{" "}
       </div>
     </div>
