@@ -1,13 +1,37 @@
 "use client";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useSignup } from "../../hooks/useSignup";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const userSchema = z
+  .object({
+    fullName: z.string().min(2, "ეს სავალდებულო ველია").max(30),
+    email: z.string().min(1, "ეს სავალდებულო ველია").email(),
+    password: z.string().min(8, "შეიყვანეთ მინიმუმ 8 სიმბოლო"),
+    confirm: z.string().min(1, "გაიმეორეთ პაროლი"),
+  })
+  .refine((formData) => formData.password === formData.confirm, {
+    path: ["confirm"],
+    message: "პაროლები არ ემთხვევა",
+  });
+
+type FormFields = z.infer<typeof userSchema>;
 
 export default function SignUpForm() {
-  const { register, formState, getValues, handleSubmit } = useForm();
+  // const { register, formState, getValues, handleSubmit } = useForm();
+  const { register, formState, getValues, handleSubmit } = useForm<FormFields>({
+    resolver: zodResolver(userSchema),
+  });
   const { errors } = formState;
   const { signUp } = useSignup();
 
-  const submitFunction: SubmitHandler<FieldValues> = async (formData) => {
+  // const submitFunction: SubmitHandler<FieldValues> = async (formData) => {
+  //   const { fullName, email, password } = formData;
+  //   signUp({ fullName, email, password });
+  // };
+
+  const submitFunction = async (formData: FormFields) => {
     const { fullName, email, password } = formData;
     signUp({ fullName, email, password });
   };
@@ -84,8 +108,8 @@ export default function SignUpForm() {
         placeholder="გაიმეორეთ პაროლი"
         {...register("confirm", {
           required: "This field is requierd",
-          validate: (value) =>
-            value === getValues().password || "Passwords need to match",
+          // validate: (value) =>
+          //   value === getValues().password || "Passwords need to match",
         })}
       />
 
