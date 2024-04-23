@@ -5,16 +5,17 @@ import { addNewProduct } from "@/services/getProducts";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import MinisSpinner from "../ui/MinisSpinner";
 
 export default function CreateNewProduct() {
   const { register, formState, handleSubmit } = useForm();
-  const { errors } = formState;
+  const { errors, isSubmitting } = formState;
   const { user } = useGetCurrentUser();
   const router = useRouter();
   const queryClient = useQueryClient();
 
   const submitFunction: SubmitHandler<FieldValues> = async (formData) => {
-    addNewProduct({ ...formData, image: formData.image[0] }, user?.id);
+    await addNewProduct({ ...formData, image: formData.image[0] }, user?.id);
 
     queryClient.invalidateQueries({
       queryKey: ["userProducts", formData.category],
@@ -127,8 +128,11 @@ export default function CreateNewProduct() {
         {...register("vip")}
       />
 
-      <button className="p-3 bg-yellow-400 hover:bg-yellow-300 hover-ease rounded-lg hover:text-black">
-        დამატება
+      <button
+        className="p-3 bg-yellow-400 hover:bg-yellow-300 hover-ease rounded-lg hover:text-black"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? <MinisSpinner /> : "დამატება"}
       </button>
     </form>
   );
