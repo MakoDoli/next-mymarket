@@ -20,7 +20,7 @@ export default function Navbar() {
 
   function handleLogin() {
     if (isAuthenticated) logout();
-    if (!isAuthenticated) router.push("/login");
+    if (!isAuthenticated) router.push("/ka/login");
   }
 
   return (
