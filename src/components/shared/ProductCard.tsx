@@ -37,7 +37,7 @@ export default function ProductCard({ product }: Props2) {
         <p className="text-xs text-gray-500">{seller}</p>
       </div>
       <Link
-        href={`/electronics/${
+        href={`/ka/electronics/${
           category === "computers" ? "laptops" : category
         }/${id}/details`}
       >

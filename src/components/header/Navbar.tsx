@@ -20,14 +20,14 @@ export default function Navbar() {
 
   function handleLogin() {
     if (isAuthenticated) logout();
-    if (!isAuthenticated) router.push("/login");
+    if (!isAuthenticated) router.push("/ka/login");
   }
 
   return (
     <div>
       <ul className="flex gap-2 lg:gap-6 items-center">
         <li>
-          <Link href={`${isAuthenticated ? "/new" : "/login"}`}>
+          <Link href={`${isAuthenticated ? "/ka/new" : "/ka/login"}`}>
             <div className="flex items-center bg-amber-100 hover:bg-amber-200 gap-2 bg-opacity-90 cursor-pointer w-32 h-10 rounded-xl px-3 hover-ease">
               <Image
                 src="/icons/plus-icon.png"
@@ -47,7 +47,7 @@ export default function Navbar() {
             width={21}
             height={20}
           />
-          <Link href="/favorites">
+          <Link href="/ka/favorites">
             <div className="w-[22px] h-[21px] relative">
               <div
                 className={` bg-orange-500 rounded-full w-4 ${
@@ -65,7 +65,7 @@ export default function Navbar() {
               />
             </div>
           </Link>
-          <Link href="/cart">
+          <Link href="/ka/cart">
             <div className="w-[22px] h=[21px] relative ">
               <div
                 className={` bg-orange-500 rounded-full w-4 ${

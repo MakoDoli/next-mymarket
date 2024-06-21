@@ -3,19 +3,19 @@ export const categoriesData = [
     title: "მობილური ტელეფონები",
     src: "/images/mobile.webp",
     margin: "",
-    path: "/electronics/mobiles",
+    path: "/locale/electronics/mobiles",
   },
   {
     title: "კომპიუტერული ტექნიკა",
     src: "/images/laptop.webp",
     margin: "mt-[5px]",
-    path: "/electronics/laptops",
+    path: "/locale/electronics/laptops",
   },
   {
     title: "ტელევიზორები",
     src: "/images/tv.webp",
     margin: "mt-6",
-    path: "/electronics/tvs",
+    path: "/locale/electronics/tvs",
   },
   {
     title: "სათამაშოები",

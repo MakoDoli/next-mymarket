@@ -20,7 +20,7 @@ export default function CartList() {
           <h2 className="text-2xl">ჩემი კალათა</h2>
           <div className="flex gap-3 items-center ">
             <p className="text-lg text-blue-600">{total} ₾</p>
-            <Link href={isAuthenticated ? "/purchase" : "/login"}>
+            <Link href={isAuthenticated ? "/ka/purchase" : "/ka/login"}>
               <div className="bg-yellow-400 hover:bg-yellow-300 hover-ease px-3  h-[2rem] rounded-md text-center  text-md cursor-pointer ">
                 ყიდვა
               </div>
