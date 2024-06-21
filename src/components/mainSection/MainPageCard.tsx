@@ -17,7 +17,7 @@ export default function MainPageCard({
 }: Props) {
   return (
     <Link
-      href={`/electronics/${
+      href={`/ka/electronics/${
         category === "computers" ? "laptops" : category
       }/${id}/details`}
     >

@@ -9,7 +9,7 @@ export default function Home() {
   console.log(t);
   return (
     <main className="2xl:px-8">
-      <h1>{t("title")}</h1>
+      {/* <h1>{t("title")}</h1> */}
       <CategoriesCarousel />
       <Suspense fallback={<Spinner />}>
         <DisplayAllProducts />

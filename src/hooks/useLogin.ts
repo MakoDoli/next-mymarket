@@ -7,7 +7,7 @@ export function useLogin() {
   const router = useRouter();
   const { mutate, isPending } = useMutation({
     mutationFn: userLogin,
-    onSuccess: () => router.push("/cart"),
+    onSuccess: () => router.push("/ka/cart"),
 
     onError: (err) => {
       toast.error("არასწორი მომხმარებელი ან პაროლი");

@@ -58,7 +58,7 @@ export default function CartCard({ product }: Props) {
         </div>
         <div>
           <Link
-            href={`/electronics/${
+            href={`/ka/electronics/${
               category === "computers" ? "laptops" : category
             }/${id}/details`}
           >
