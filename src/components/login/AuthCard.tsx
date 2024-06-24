@@ -5,6 +5,8 @@ import LoginForm from "./LoginForm";
 import { slimFont } from "@/fonts/slimfont";
 import ForgotPass from "./ForgotPass";
 import Slider from "./Slider";
+import { authGoogle } from "@/services/getUser";
+import Image from "next/image";
 
 export default function AuthCard() {
   const [signIn, setSignIn] = useState(true);
@@ -117,6 +119,18 @@ export default function AuthCard() {
           ) : (
             ""
           )}
+        </div>
+        <div
+          className="flex items-center justify-center mt-6"
+          onClick={authGoogle}
+        >
+          <Image
+            src="/logos/google.png"
+            alt="google"
+            width={200}
+            height={60}
+            className="cursor-pointer "
+          />
         </div>
       </div>
       <div className="w-1/2  border-l h-screen border-gray-200 hidden md:flex  justify-center  overflow-hidden">
