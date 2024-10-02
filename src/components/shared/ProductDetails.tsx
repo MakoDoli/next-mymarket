@@ -39,7 +39,7 @@ export default async function ProductDetails({ category, id }: Props) {
     id
   );
   const { title, description, price, seller, image } = data[0];
-  console.log(data[0]);
+
   return (
     <>
       <AdContent />

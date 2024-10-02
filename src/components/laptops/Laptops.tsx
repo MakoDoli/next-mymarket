@@ -1,13 +1,13 @@
-"use client";
 import React from "react";
 import ProductCard from "../shared/ProductCard";
 import Sidebar from "../sidebar/Sidebar";
 import CategoryLinks from "../shared/CategoryLinks";
-import { useGetlaptops } from "@/hooks/useGetAllProducts";
+import getProducts from "@/services/getProducts";
+//import { useGetlaptops } from "@/hooks/useGetAllProducts";
 
-export default function LaptopsList({ query }: { query: string }) {
-  // const data = await getProducts("laptops");
-  const data = useGetlaptops();
+export default async function LaptopsList({ query }: { query: string }) {
+  const data = await getProducts("laptops");
+  //const data = useGetlaptops();
   const list = !query
     ? data
     : data?.filter((product) =>
