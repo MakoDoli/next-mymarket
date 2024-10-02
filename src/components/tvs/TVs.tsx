@@ -1,13 +1,13 @@
-"use client";
 import React from "react";
 import ProductCard from "../shared/ProductCard";
 import Sidebar from "../sidebar/Sidebar";
 import CategoryLinks from "../shared/CategoryLinks";
-import { useGetTvs } from "@/hooks/useGetAllProducts";
+import getProducts from "@/services/getProducts";
+//import { useGetTvs } from "@/hooks/useGetAllProducts";
 
-export default function TVs({ query }: { query: string }) {
-  const data = useGetTvs();
-  // const data = await getProducts("tvs");
+export default async function TVs({ query }: { query: string }) {
+  //const data = useGetTvs();
+  const data = await getProducts("tvs");
   const list = !query
     ? data
     : data?.filter((product) =>

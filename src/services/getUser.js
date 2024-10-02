@@ -44,7 +44,7 @@ export async function register({ fullName, email, password }) {
       },
     },
   });
-  console.log(fullName);
+
   if (error) throw new Error(error.message);
 
   return data;

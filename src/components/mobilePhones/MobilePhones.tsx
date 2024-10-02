@@ -1,13 +1,13 @@
-"use client";
 import React from "react";
 import ProductCard from "../shared/ProductCard";
 import Sidebar from "../sidebar/Sidebar";
 import CategoryLinks from "../shared/CategoryLinks";
 import { useGetMobiles } from "@/hooks/useGetAllProducts";
+import getProducts from "@/services/getProducts";
 
-export default function MobilePhones({ query }: { query: string }) {
-  // const data = await getProducts("mobiles");
-  const data = useGetMobiles();
+export default async function MobilePhones({ query }: { query: string }) {
+  const data = await getProducts("mobiles");
+  //const data = useGetMobiles();
   const list = !query
     ? data
     : data?.filter((product) =>
