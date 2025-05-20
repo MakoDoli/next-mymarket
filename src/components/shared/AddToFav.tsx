@@ -5,7 +5,7 @@ import Image from "next/image";
 import React, { useContext } from "react";
 import { UserActivityContext } from "../../context/UserActivityContext";
 import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
-import { addToFavorites } from "@/services/getProducts";
+import { addToFavorites } from "@/services/getUsersProducts";
 
 type Props2 = {
   product: Product;

@@ -43,26 +43,12 @@ export async function addNewProduct(newProduct, userID) {
 
   const { error: insertError } = await supabase
     .from(newProduct.category)
-    .insert([{ ...newProduct, image: imagePath, user_id: userID }]);
+    .insert([{ ...newProduct, image: imagePath, author: userID }]);
 
   if (insertError) {
     console.warn(insertError.message);
     throw new Error("პროდუქტი ვერ დაემატა");
   }
 
-  return data;
-}
-
-export async function addToFavorites(productID, userID) {
-  console.log("PRODUCT: " + productID);
-  console.log("USER: " + userID);
-  const { data, error: favoritesError } = await supabase
-    .from("favorites")
-    .insert([{ product_id: productID, user_id: userID }]);
-
-  if (favoritesError) {
-    console.warn(favoritesError.message);
-    throw new Error("პროდუქტი რჩეულებში ვერ დაემატა");
-  }
   return data;
 }

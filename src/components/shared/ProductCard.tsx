@@ -44,7 +44,7 @@ export default function ProductCard({ product }: Props2) {
         <p className="mt-8 cursor-pointer ">{title}</p>
       </Link>
       <p className=" text-xs mb-3 text-gray-600">
-        {description.slice(0, 22)}..
+        {description?.slice(0, 22)}..
       </p>
       <hr></hr>
       <div className="mt-1 flex justify-between items-center">
