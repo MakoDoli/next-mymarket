@@ -19,7 +19,6 @@ export default function AddToFavorites({ product }: Props2) {
   const isFavorite = favorites.find((item) => item.title === product.title);
 
   const handleFavorites = async () => {
-    console.log("STARTING!!");
     if (!isAuthenticated) {
       if (!isFavorite) {
         setFavorites((prev: Product[]) => [...prev, product]);
@@ -33,8 +32,7 @@ export default function AddToFavorites({ product }: Props2) {
     }
 
     if (isAuthenticated) {
-      console.log("Starting from comp");
-      await addToFavorites(product.id, user!.id);
+      await addToFavorites(product.id, (user!.id));
     }
   };
 

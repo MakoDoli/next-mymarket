@@ -57,7 +57,7 @@ export async function deleteUserProduct(category: string, id: number) {
   }
 }
 
-export async function addToFavorites(productID: number, userID: number) {
+export async function addToFavorites(productID: number, userID: string) {
   const { data, error: favoritesError } = await supabase
     .from("favorites")
     .insert([{ product_id: productID, user_id: userID }]);
@@ -69,7 +69,7 @@ export async function addToFavorites(productID: number, userID: number) {
   return data;
 }
 
-export async function getUserFavorites(userID: string) {
+export async function getUserFavorites(userID?: string) {
   const { data: favorites, error: favoritesListError } = await supabase
     .from("favorites")
     .select("product_id")

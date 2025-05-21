@@ -13,7 +13,7 @@ export default function useGetUsersItems(id: string) {
   return products;
 }
 
-export function useGetUserFavorites(userID: string) {
+export function useGetUserFavorites(userID?: string) {
   const { data: favoritesDB } = useQuery({
     queryKey: ["favorites"],
     queryFn: () => getUserFavorites(userID),

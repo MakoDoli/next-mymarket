@@ -8,14 +8,17 @@ import { useLogout } from "@/hooks/useLogout";
 
 import { useRouter } from "next/navigation";
 import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
+import { useGetUserFavorites } from "@/hooks/useGetUsersItems";
+import { Product } from "@/utils/types";
 
 export default function Navbar() {
   const { favorites, cartItems } = useContext(UserActivityContext);
-  const { isAuthenticated } = useGetCurrentUser();
+  const { user, isAuthenticated } = useGetCurrentUser();
   const logout = useLogout();
   const router = useRouter();
+  const favoritesDB = useGetUserFavorites(user?.id) as Product[];
 
-  const favNum = favorites.length;
+  const favNum = favoritesDB ? favoritesDB.length : favorites.length;
   const cartNum = cartItems.length;
 
   function handleLogin() {
