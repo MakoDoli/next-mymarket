@@ -40,7 +40,12 @@ export async function getUsersProducts(id: string) {
     throw new Error("Product could not be loaded");
   }
 
-  const allProducts: UserProduct[] = [...mobiles, ...laptops, ...tvs];
+  // const allProducts: UserProduct[] = [...mobiles, ...laptops, ...tvs];
+  const { data: allProducts, error } = await supabase
+    .from("electronics")
+    .select("*")
+    .eq("author", id);
+  if (error) throw new Error("განცხადება ვერ მოიძებნა");
   return allProducts;
 }
 
@@ -50,4 +55,38 @@ export async function deleteUserProduct(category: string, id: number) {
   if (error) {
     throw new Error("პროდუქტი ვერ მოიძებნა");
   }
+}
+
+export async function addToFavorites(productID: number, userID: string) {
+  const { data, error: favoritesError } = await supabase
+    .from("favorites")
+    .insert([{ product_id: productID, user_id: userID }]);
+
+  if (favoritesError) {
+    console.warn(favoritesError.message);
+    throw new Error("პროდუქტი რჩეულებში ვერ დაემატა");
+  }
+  return data;
+}
+
+export async function getUserFavorites(userID?: string) {
+  const { data: favorites, error: favoritesListError } = await supabase
+    .from("favorites")
+    .select("product_id")
+    .eq("user_id", userID);
+
+  if (favoritesListError) throw new Error("რჩეულები ვერ მოიძებნა");
+
+  const productIDs = favorites.map((product) => product.product_id);
+
+  if (productIDs.length === 0) return [];
+
+  const { data: products, error } = await supabase
+    .from("electronics")
+    .select("*")
+    .in("id", productIDs);
+
+  if (error) throw new Error("რჩეულები ვერ მოიძებნა");
+
+  return products;
 }

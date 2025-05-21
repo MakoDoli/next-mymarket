@@ -4,6 +4,8 @@ import Image from "next/image";
 
 import React, { useContext } from "react";
 import { UserActivityContext } from "../../context/UserActivityContext";
+import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
+import { addToFavorites } from "@/services/getUsersProducts";
 
 type Props2 = {
   product: Product;
@@ -12,18 +14,25 @@ type Props2 = {
 export default function AddToFavorites({ product }: Props2) {
   const { title } = product;
   const { favorites, setFavorites } = useContext(UserActivityContext);
+  const { isAuthenticated, user } = useGetCurrentUser();
 
   const isFavorite = favorites.find((item) => item.title === product.title);
 
-  const handlefavorites = () => {
-    if (!isFavorite) {
-      setFavorites((prev: Product[]) => [...prev, product]);
+  const handleFavorites = async () => {
+    if (!isAuthenticated) {
+      if (!isFavorite) {
+        setFavorites((prev: Product[]) => [...prev, product]);
+      }
+      if (isFavorite) {
+        const filteredFavorites = favorites.filter(
+          (item) => item.title !== title
+        );
+        setFavorites((prev: Product[]) => filteredFavorites);
+      }
     }
-    if (isFavorite) {
-      const filteredFavorites = favorites.filter(
-        (item) => item.title !== title
-      );
-      setFavorites((prev: Product[]) => filteredFavorites);
+
+    if (isAuthenticated) {
+      await addToFavorites(product.id, (user!.id));
     }
   };
 
@@ -35,7 +44,7 @@ export default function AddToFavorites({ product }: Props2) {
         } hover:bg-yellow-400`}
       >
         <Image
-          onClick={handlefavorites}
+          onClick={handleFavorites}
           className=" place-self-center "
           src="/icons/heart.png"
           alt="favorite-icon"

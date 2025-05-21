@@ -43,7 +43,7 @@ export async function addNewProduct(newProduct, userID) {
 
   const { error: insertError } = await supabase
     .from(newProduct.category)
-    .insert([{ ...newProduct, image: imagePath, user_id: userID }]);
+    .insert([{ ...newProduct, image: imagePath, author: userID }]);
 
   if (insertError) {
     console.warn(insertError.message);

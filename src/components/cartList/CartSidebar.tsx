@@ -34,11 +34,11 @@ export default function CartSidebar() {
             <Link
               href={`${
                 item === "ჩემი რჩეულები"
-                  ? "/favorites"
+                  ? "/ka/favorites"
                   : item === "ჩემი განცხადებები"
-                  ? "/my-products"
+                  ? "/ka/my-products"
                   : item === "განცხადების დამატება"
-                  ? "/new"
+                  ? "/ka/new"
                   : ""
               }`}
             >
