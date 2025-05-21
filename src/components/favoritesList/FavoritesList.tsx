@@ -11,7 +11,7 @@ export default function FavoritesList() {
   const { user, isAuthenticated } = useGetCurrentUser();
   const [favoritesList, setFavoritesList] = useState<Product[] | []>([]);
 
-  const favoritesDB = useGetUserFavorites(user!.id) as Product[];
+  const favoritesDB = useGetUserFavorites(user?.id) as Product[];
 
   useEffect(() => {
     if (!isAuthenticated) setFavoritesList(favorites);
