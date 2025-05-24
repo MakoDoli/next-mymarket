@@ -69,6 +69,20 @@ export async function addToFavorites(productID: number, userID: string) {
   return data;
 }
 
+export async function addToCart(
+  productID: number,
+  userID: string,
+  quantity = 1
+) {
+  const { data, error: cartError } = await supabase
+    .from("cart")
+    .insert([{ product_id: productID, user_id: userID, quantity }]);
+
+  if (cartError) throw new Error("პროდუქტი კალათაში ვერ დაემატა");
+
+  return data;
+}
+
 export async function getUserFavorites(userID?: string) {
   const { data: favorites, error: favoritesListError } = await supabase
     .from("favorites")
@@ -87,6 +101,27 @@ export async function getUserFavorites(userID?: string) {
     .in("id", productIDs);
 
   if (error) throw new Error("რჩეულები ვერ მოიძებნა");
+
+  return products;
+}
+export async function getUserCart(userID?: string) {
+  const { data: cart, error: cartError } = await supabase
+    .from("cart")
+    .select("product_id")
+    .eq("user_id", userID);
+
+  if (cartError) throw new Error("კალათა ვერ მოიძებნა");
+
+  const productIDs = cart.map((item) => item.product_id);
+
+  if (productIDs.length === 0) return [];
+
+  const { data: products, error } = await supabase
+    .from("electronics")
+    .select("*")
+    .in("id", productIDs);
+
+  if (error) throw new Error("კალათა ვერ მოიძებნა");
 
   return products;
 }

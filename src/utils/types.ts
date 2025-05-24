@@ -8,3 +8,10 @@ export type Product = {
   image: string;
   price: number;
 };
+
+export type UserProduct = {
+  id: number;
+  user_id: string;
+  product_id: number;
+  quantity?: number;
+};
