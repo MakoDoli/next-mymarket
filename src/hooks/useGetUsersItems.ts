@@ -1,4 +1,5 @@
 import {
+  getUserCart,
   getUserFavorites,
   getUsersProducts,
 } from "@/services/getUsersProducts";
@@ -20,4 +21,14 @@ export function useGetUserFavorites(userID?: string) {
     enabled: !!userID, // prevents the query from running until user.id is available
   });
   return favoritesDB;
+}
+
+export function useGetUSerCart(userID?: string){
+const {data: cartItems} = useQuery({
+  queryKey: ["cart"],
+  queryFn: ()=>getUserCart(userID),
+  enabled: !!userID
+})
+
+return cartItems
 }

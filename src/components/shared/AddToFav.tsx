@@ -1,11 +1,12 @@
 "use client";
-import { Product } from "@/utils/types";
+import { Product, UserProduct } from "@/utils/types";
 import Image from "next/image";
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserActivityContext } from "../../context/UserActivityContext";
 import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
 import { addToFavorites } from "@/services/getUsersProducts";
+import { useGetUserFavorites } from "@/hooks/useGetUsersItems";
 
 type Props2 = {
   product: Product;
@@ -16,7 +17,11 @@ export default function AddToFavorites({ product }: Props2) {
   const { favorites, setFavorites } = useContext(UserActivityContext);
   const { isAuthenticated, user } = useGetCurrentUser();
 
-  const isFavorite = favorites.find((item) => item.title === product.title);
+  const favoritesDB = useGetUserFavorites(user?.id) as UserProduct[];
+
+  const [isFavorite, setIsFavorite] = useState(
+    favorites.some((item) => item.title === product.title)
+  );
 
   const handleFavorites = async () => {
     if (!isAuthenticated) {
@@ -32,10 +37,13 @@ export default function AddToFavorites({ product }: Props2) {
     }
 
     if (isAuthenticated) {
-      await addToFavorites(product.id, (user!.id));
+      await addToFavorites(product.id, user!.id);
     }
   };
-
+  useEffect(() => {
+    if (favoritesDB?.length > 0)
+      setIsFavorite(favoritesDB.some((item) => item.product_id === product.id));
+  }, [favoritesDB, product.id]);
   return (
     <div className="flex gap-2">
       <div
