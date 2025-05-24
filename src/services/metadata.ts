@@ -13,8 +13,7 @@ export async function getMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const id = params.id;
-  const category = params.category;
-  const product = await getProductDetails(category, id);
+  const product = await getProductDetails(id);
   const previousTitle = (await parent).title || "";
   return {
     title: product[0].title || previousTitle,

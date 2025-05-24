@@ -1,6 +1,19 @@
 import supabase, { supabaseUrl } from "./supabase";
 
 export default async function getProducts(category) {
+  const { data, error } = await supabase
+    .from("electronics")
+    .select("*")
+    .eq("category", category);
+  if (error) {
+    console.warn(error.message);
+    throw new Error("Data could not be loaded");
+  }
+
+  return data;
+}
+
+export async function getItems(category) {
   const { data, error } = await supabase.from(category).select("*");
   if (error) {
     console.warn(error.message);
@@ -10,14 +23,14 @@ export default async function getProducts(category) {
   return data;
 }
 
-export async function getProductDetails(category, id) {
+export async function getProductDetails(id) {
   const { data, error } = await supabase
-    .from(category)
+    .from("electronics")
     .select("*")
     .eq("id", id);
 
   if (error) {
-    console.warn(error.message);
+    console.warn(error);
     throw new Error("Product could not be loaded");
   }
 

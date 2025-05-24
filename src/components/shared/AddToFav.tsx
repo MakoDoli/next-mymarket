@@ -42,8 +42,9 @@ export default function AddToFavorites({ product }: Props2) {
   };
   useEffect(() => {
     if (favoritesDB?.length > 0)
-      setIsFavorite(favoritesDB.some((item) => item.product_id === product.id));
+      setIsFavorite(favoritesDB.some((item) => item.id === product.id));
   }, [favoritesDB, product.id]);
+
   return (
     <div className="flex gap-2">
       <div

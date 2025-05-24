@@ -41,7 +41,7 @@ export default function AddToCart({ product }: Props2) {
   };
   useEffect(() => {
     if (cartProducts?.length > 0)
-      setIsInCart(cartProducts.some((item) => item.product_id === product.id));
+      setIsInCart(cartProducts.some((item) => item.id === product.id));
   }, [cartProducts, product.id]);
   return (
     <div
