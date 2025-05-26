@@ -36,7 +36,7 @@ export default function CartList() {
           </div>
         </div>
         <div className="flex my-8 flex-col gap-x-4 gap-y-6">
-          {cartList.map((product, index) => (
+          {cartList?.map((product, index) => (
             <CartCard product={product} key={index} />
           ))}
         </div>
