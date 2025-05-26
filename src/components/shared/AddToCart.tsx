@@ -6,6 +6,7 @@ import { UserActivityContext } from "../../context/UserActivityContext";
 import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
 import { addToCart } from "@/services/getUsersProducts";
 import { useGetUSerCart } from "@/hooks/useGetUsersItems";
+import { useAddToCart } from "@/hooks/useUpdateUserProducts";
 
 type Props2 = {
   product: Product;
@@ -15,6 +16,7 @@ export default function AddToCart({ product }: Props2) {
   const { title, price } = product;
   const { cartItems, setCartItems, setTotal } = useContext(UserActivityContext);
   const { isAuthenticated, user } = useGetCurrentUser();
+  const { mutate: addToCart, isPending } = useAddToCart();
 
   const [isInCart, setIsInCart] = useState(
     cartItems.some((item) => item.title === title)
@@ -36,12 +38,12 @@ export default function AddToCart({ product }: Props2) {
     }
 
     if (isAuthenticated) {
-      await addToCart(product.id, user!.id);
+      addToCart({ productID: product.id, userID: user!.id });
     }
   };
   useEffect(() => {
     if (cartProducts?.length > 0)
-      setIsInCart(cartProducts.some((item) => item.product_id === product.id));
+      setIsInCart(cartProducts.some((item) => item.id === product.id));
   }, [cartProducts, product.id]);
   return (
     <div

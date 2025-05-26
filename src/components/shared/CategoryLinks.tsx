@@ -20,7 +20,7 @@ export default function CategoryLinks({
         <span className="flex items-center">&gt;</span>
       </div>
       <div className="flex gap-2 items-center">
-        <Link href={`/electronics/${category}`}>{links}</Link>
+        <Link href={`/ka/electronics/${category}`}>{links}</Link>
         <span className="flex items-center">&gt;</span>
       </div>
       <p>{title}</p>

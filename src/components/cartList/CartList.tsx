@@ -1,17 +1,25 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserActivityContext } from "../../context/UserActivityContext";
 import CartSidebar from "./CartSidebar";
 import CartCard from "./CartCard";
 
 import Link from "next/link";
 import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
+import { useGetUSerCart } from "@/hooks/useGetUsersItems";
+import { Product } from "@/utils/types";
 
 export default function CartList() {
   const { cartItems, total } = useContext(UserActivityContext);
+  const { isAuthenticated, user } = useGetCurrentUser();
+  const [cartList, setCartList] = useState<Product[] | []>([]);
 
-  const { isAuthenticated } = useGetCurrentUser();
+  const cartProducts = useGetUSerCart(user?.id) as Product[];
 
+  useEffect(() => {
+    if (!isAuthenticated) setCartList(cartItems);
+    if (isAuthenticated) setCartList(cartProducts);
+  }, [isAuthenticated, cartItems, cartProducts, user]);
   return (
     <main className="p-4 flex flex-col-reverse bg-gray-100 lg:px-12 md:flex-row gap-2 lg:gap-4">
       <CartSidebar />
@@ -28,7 +36,7 @@ export default function CartList() {
           </div>
         </div>
         <div className="flex my-8 flex-col gap-x-4 gap-y-6">
-          {cartItems.map((product, index) => (
+          {cartList?.map((product, index) => (
             <CartCard product={product} key={index} />
           ))}
         </div>

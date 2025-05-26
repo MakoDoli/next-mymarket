@@ -7,24 +7,6 @@ import { slimFont } from "@/fonts/slimfont";
 import AddButton from "./AddButton";
 import AddToFavorites from "./AddToFav";
 import CategoryLinks from "./CategoryLinks";
-import { NextRequest } from "next/server";
-import { revalidatePath } from "next/cache";
-
-export async function GET(request: NextRequest) {
-  const path = request.nextUrl.searchParams.get("path");
-
-  if (path) {
-    revalidatePath(path);
-    return Response.json({ revalidated: true, now: Date.now() });
-  }
-
-  return Response.json({
-    revalidated: false,
-    now: Date.now(),
-    message: "Missing path to revalidate",
-  });
-}
-
 type Props = {
   id: number;
   category: string;
@@ -34,10 +16,8 @@ export default async function ProductDetails({ category, id }: Props) {
   const randomNum = (value: number) => {
     return Math.floor(Math.random() * value) + 1000;
   };
-  const data = await getProductDetails(
-    category === "computers" ? "laptops" : category,
-    id
-  );
+
+  const data = await getProductDetails(id);
   const { title, description, price, seller, image } = data[0];
 
   return (
