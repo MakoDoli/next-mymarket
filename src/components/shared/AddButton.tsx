@@ -5,9 +5,8 @@ import React, { useContext } from "react";
 import { UserActivityContext } from "../../context/UserActivityContext";
 import { useGetUSerCart } from "@/hooks/useGetUsersItems";
 import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
-import { addToCart } from "@/services/getUsersProducts";
-import { revalidatePath } from "next/cache";
-import { useAddToCart } from "@/hooks/useUpdateUserProducts";
+
+import { useAddToCart, useDeleteFromCart } from "@/hooks/useUpdateUserProducts";
 
 type Props2 = {
   product: Product;
@@ -18,6 +17,7 @@ export default function AddButton({ product }: Props2) {
   const { cartItems, setCartItems, setTotal } = useContext(UserActivityContext);
   const { isAuthenticated, user } = useGetCurrentUser();
   const { mutate: addToCart } = useAddToCart();
+  const { mutate: deleteFromCart } = useDeleteFromCart();
 
   const cartProducts = useGetUSerCart(user?.id) as Product[];
   const isInCart = !isAuthenticated
@@ -36,7 +36,8 @@ export default function AddButton({ product }: Props2) {
       }
     }
     if (isAuthenticated) {
-      addToCart({ productID: product.id, userID: user!.id });
+      if (!isInCart) addToCart({ productID: product.id, userID: user!.id });
+      if (isInCart) deleteFromCart({ productID: product.id, userID: user!.id });
     }
   };
 

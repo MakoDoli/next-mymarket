@@ -125,3 +125,8 @@ export async function getUserCart(userID?: string) {
 
   return products;
 }
+
+export async function deleteFromCart(productID: number, userID: string) {
+  const { error } = await supabase.from("cart").delete().eq('user_id',userID).eq("product_id",productID);
+  if (error) throw new Error ("პროდუქტი ვერ წაიშალა")
+}

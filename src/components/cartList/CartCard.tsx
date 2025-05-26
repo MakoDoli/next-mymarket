@@ -5,28 +5,41 @@ import Link from "next/link";
 import React, { useContext } from "react";
 import { UserActivityContext } from "../../context/UserActivityContext";
 import { slimFont } from "@/fonts/slimfont";
+import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
+import { User } from "@supabase/supabase-js";
+import { deleteFromCart } from "@/services/getUsersProducts";
+import { useDeleteFromCart } from "@/hooks/useUpdateUserProducts";
 
 type Props = {
   product: Product;
+  user: User | null | undefined;
+  isAuthenticated: boolean;
 };
 
-export default function CartCard({ product }: Props) {
+export default function CartCard({ product, user, isAuthenticated }: Props) {
   const { image, seller, title, description, price, vip, id, category } =
     product;
   const { total, setTotal, cartItems, setCartItems, itemCount, setItemCount } =
     useContext(UserActivityContext);
+  const { mutate: deleteFromCart } = useDeleteFromCart();
 
   const count = itemCount.filter((item) => item.title === title).length + 1;
 
   const sum = price * count;
 
-  const handleDelete = () => {
-    const filteredCart = cartItems.filter((item) => item.title !== title);
-    setCartItems((prev: Product[]) => filteredCart);
-    if (total - sum < 0) {
-      setTotal((prev) => prev * 0);
+  const handleDelete = async () => {
+    if (!isAuthenticated) {
+      const filteredCart = cartItems.filter((item) => item.title !== title);
+      setCartItems((prev: Product[]) => filteredCart);
+      if (total - sum < 0) {
+        setTotal((prev) => prev * 0);
+      }
+      setTotal((prev) => prev - sum);
     }
-    setTotal((prev) => prev - sum);
+
+    if (isAuthenticated) {
+      deleteFromCart({ productID: product.id, userID: user!.id });
+    }
   };
 
   return (

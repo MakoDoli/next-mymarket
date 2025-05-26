@@ -1,4 +1,8 @@
-import { addToCart, addToFavorites } from "@/services/getUsersProducts";
+import {
+  addToCart,
+  addToFavorites,
+  deleteFromCart,
+} from "@/services/getUsersProducts";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export function useAddToCart() {
@@ -28,5 +32,22 @@ export function useAddToFavorites() {
       userID: string;
     }) => addToFavorites(productID, userID),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["favorites"] }),
+  });
+}
+
+export function useDeleteFromCart() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({
+      productID,
+      userID,
+    }: {
+      productID: number;
+      userID: string;
+    }) => deleteFromCart(productID, userID),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["cart"] });
+    },
   });
 }
