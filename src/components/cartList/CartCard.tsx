@@ -98,7 +98,7 @@ export default function CartCard({ product }: Props) {
               setItemCount((prev) => [...itemCount, product]);
               setTotal((prev) => prev + price);
             }}
-            className="cursor-pointer rounded-lg w-8 h-4 bg-white shadow-md shadow-yellow-200 grid place-content-center "
+            className="cursor-pointer rounded-lg w-8 h-4 bg-white shadow-md shadow-yellow-200 grid place-content-center rotate-180 "
           >
             <p>&#43;</p>
           </div>

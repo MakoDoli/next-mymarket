@@ -5,8 +5,9 @@ import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import { UserActivityContext } from "../../context/UserActivityContext";
 import { useGetCurrentUser } from "@/hooks/useGetCurrentUser";
-import { addToFavorites } from "@/services/getUsersProducts";
+
 import { useGetUserFavorites } from "@/hooks/useGetUsersItems";
+import { useAddToFavorites } from "@/hooks/useUpdateUserProducts";
 
 type Props2 = {
   product: Product;
@@ -16,6 +17,7 @@ export default function AddToFavorites({ product }: Props2) {
   const { title } = product;
   const { favorites, setFavorites } = useContext(UserActivityContext);
   const { isAuthenticated, user } = useGetCurrentUser();
+  const { mutate: addToFavorites } = useAddToFavorites();
 
   const favoritesDB = useGetUserFavorites(user?.id) as UserProduct[];
 
@@ -37,7 +39,7 @@ export default function AddToFavorites({ product }: Props2) {
     }
 
     if (isAuthenticated) {
-      await addToFavorites(product.id, user!.id);
+      addToFavorites({ productID: product.id, userID: user!.id });
     }
   };
   useEffect(() => {
